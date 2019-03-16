@@ -7,7 +7,6 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -46,7 +45,7 @@ class _HomePageState extends State<HomePage> {
     //   body: Padding(
     //     padding: new EdgeInsets.all(Util.stateHeight()),
     //     child: new Container(
-          
+
     //     )
     //   )
     // );

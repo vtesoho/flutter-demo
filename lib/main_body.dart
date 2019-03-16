@@ -1,10 +1,6 @@
-
 import 'package:flutter/material.dart';
 
-class MainHeader extends StatelessWidget{
-  
+class MainHeader extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    
-  }
+  Widget build(BuildContext context) {}
 }

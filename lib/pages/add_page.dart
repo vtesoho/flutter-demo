@@ -5,15 +5,10 @@ class AddPage extends StatefulWidget {
   _AddPageState createState() => _AddPageState();
 }
 
-
 class _AddPageState extends State<AddPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      body: Center(
-        child: Text('Add')
-      )
-    );
+    return Scaffold(body: Center(child: Text('Add')));
   }
 }

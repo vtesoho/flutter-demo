@@ -5,15 +5,10 @@ class MyPage extends StatefulWidget {
   _MyPageState createState() => _MyPageState();
 }
 
-
 class _MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      body: Center(
-        child: Text('my')
-      )
-    );
+    return Scaffold(body: Center(child: Text('my')));
   }
 }
