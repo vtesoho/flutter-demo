@@ -1,49 +1,40 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttershuachi/pages/animation.dart';
 
-class AnimatedLogo extends AnimatedWidget {
-  AnimatedLogo({Key key, Animation<double> animation})
-      : super(key: key, listenable: animation);
+void main () => runApp(App());
 
+
+class App extends StatelessWidget {
+
+  @override
   Widget build(BuildContext context) {
-    final Animation<double> animation = listenable;
-    return new Center(
-      child: new Container(
-        margin: new EdgeInsets.symmetric(vertical: 10.0),
-        height: animation.value,
-        width: animation.value,
-        child: new FlutterLogo(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/animation',
+      routes: {
+        '/': (context) => Home(),
+        '/animation': (context) => AnimationDemo(),
+      },
+      theme: ThemeData(
+        highlightColor: Color.fromARGB(255, 255, 255, 255)
+      )
+    );
+  }
+}
+
+
+class Home extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Home'),
+      ),
+      body: Center(
+        child: Text('Home Boyd'),
       ),
     );
   }
 }
 
-class LogoApp extends StatefulWidget {
-  _LogoAppState createState() => new _LogoAppState();
-}
-
-class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  Animation<double> animation;
-
-  initState() {
-    super.initState();
-    controller = new AnimationController(
-        duration: const Duration(milliseconds: 2000), vsync: this);
-    animation = new Tween(begin: 0.0, end: 300.0).animate(controller);
-    controller.forward();
-  }
-
-  Widget build(BuildContext context) {
-    return new AnimatedLogo(animation: animation);
-  }
-
-  dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-}
-
-void main() {
-  runApp(new LogoApp());
-}
