@@ -176,7 +176,7 @@ class _PageViewAndListViewDemoState extends State<PageViewAndListViewDemo> {
   Map scrollLocation = {'scrollStart': 0, 'scrollEnd': 0};
 
   double scrollPixels = 0;
-
+  double maxScrollExtent = 0;
   
   @override
   void initState() {
@@ -186,18 +186,16 @@ class _PageViewAndListViewDemoState extends State<PageViewAndListViewDemo> {
 
     });
     // _pageControllerDemo.animateToPage(2);
+     
     _listViewController.addListener(() {
       if (!_listViewController.hasClients || _listViewController.positions.length > 1){
         scrollPixels = 0;
       }else{
         setState(() {
           scrollPixels = _listViewController.position.pixels;
+          maxScrollExtent = _listViewController.position.maxScrollExtent;
         });
       }
-
-      
-      
-      // print(_listViewController.position.pixels);
     });
   }
   //vteso 3.20 add  --------
