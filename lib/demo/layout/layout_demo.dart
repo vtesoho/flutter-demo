@@ -13,6 +13,7 @@ class LayoutDemo extends StatelessWidget {
           // crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             ConstrainedBoxDemo(),
+            Padding()
           ],
         )
       )
