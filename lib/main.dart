@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttershuachi/demo/dioDemo/dioDemo.dart';
 import 'package:fluttershuachi/demo/layout/layout_demo.dart';
 import 'package:fluttershuachi/demo/state/state_management_demo.dart';
 import 'package:fluttershuachi/pages/animation.dart';
@@ -17,7 +18,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/layout',
+      initialRoute: '/dio',
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
@@ -27,6 +28,7 @@ class App extends StatelessWidget {
         '/state-management': (context) => StateManagementDemo(),
         '/mypage': (context) => MyPage(),
         '/layout': (context) => LayoutDemo(),
+        '/dio': (context) => dioDemo(),
       },
       theme: ThemeData(
         highlightColor: Color.fromARGB(255, 255, 255, 255)
