@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttershuachi/demo/imagedown/dioDemo/dioDemo.dart';
 import 'package:fluttershuachi/demo/imagedown/image_picker_saver.dart';
+import 'package:fluttershuachi/demo/imagedown/imgdown/imgdown.dart';
 import 'package:fluttershuachi/demo/layout/layout_demo.dart';
 import 'package:fluttershuachi/demo/state/state_management_demo.dart';
 import 'package:fluttershuachi/pages/animation.dart';
@@ -19,18 +20,19 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/imgsaver',
+      initialRoute: '/imgdown',
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
         '/teststatus': (context) => TestStatusDemo(),
-        '/shart': (context) => ShartDemo(),
+        // '/shart': (context) => ShartDemo(),
         '/pageview': (context) => ViewDemo(),
         '/state-management': (context) => StateManagementDemo(),
         '/mypage': (context) => MyPage(),
         '/layout': (context) => LayoutDemo(),
-        '/dio': (context) => dioDemo(),
-        '/imgsaver': (context) => ImgSaver(),
+        // '/dio': (context) => dioDemo(),
+        // '/imgsaver': (context) => ImgSaver(),
+        '/imgdown': (context) => ImgDown(),
       },
       theme: ThemeData(
         highlightColor: Color.fromARGB(255, 255, 255, 255)
