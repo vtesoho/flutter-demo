@@ -6,6 +6,7 @@ import 'package:fluttershuachi/demo/layout/layout_demo.dart';
 import 'package:fluttershuachi/demo/sliver/slive.dart';
 import 'package:fluttershuachi/demo/state/state_management_demo.dart';
 import 'package:fluttershuachi/demo/view/pageview.dart';
+import 'package:fluttershuachi/demo/cache_image/cache_image.dart';
 import 'package:fluttershuachi/pages/animation.dart';
 import 'package:fluttershuachi/pages/home.dart';
 import 'package:fluttershuachi/pages/my_page.dart';
@@ -22,7 +23,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/sliver',
+      initialRoute: '/cacheimage',
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
@@ -33,6 +34,8 @@ class App extends StatelessWidget {
         '/layout': (context) => LayoutDemo(),
         '/pageview': (context) => Pageview(),
         '/sliver': (context) => SliverDemo(),
+        '/cacheimage': (context) => CacheImage(),
+        
         
         
         // '/dio': (context) => dioDemo(),
