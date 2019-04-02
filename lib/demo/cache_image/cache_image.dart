@@ -31,7 +31,7 @@ class CacheImage extends StatelessWidget {
             placeholder: (context, url) => new CircularProgressIndicator(),
             errorWidget: (context, url, error) {
               print(error);
-              new Icon(Icons.error);
+              return Icon(Icons.error);
             },
          ),
         ),
