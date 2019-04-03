@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../model/post.dart';
 // import 'package:cached_network_image/cached_network_image.dart';
 class SliverDemo extends StatelessWidget{
   @override
@@ -6,6 +7,28 @@ class SliverDemo extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: Text('ssss'),
+      ),
+      body: Scaffold(
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverGrid(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 8.0,
+                mainAxisSpacing: 8.0,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return Container(
+                    child: Image.network(
+                      posts[index].imageUrl,
+                    ),
+                  );
+                }
+              ),
+            )
+          ],
+        ),
       ),
       // body: CustomScrollView(
       //   slivers: <Widget>[
