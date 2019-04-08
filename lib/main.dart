@@ -5,6 +5,7 @@ import 'package:fluttershuachi/demo/imagedown/imgdown/imgdown.dart';
 import 'package:fluttershuachi/demo/layout/layout_demo.dart';
 import 'package:fluttershuachi/demo/sliver/slive.dart';
 import 'package:fluttershuachi/demo/state/state_management_demo.dart';
+import 'package:fluttershuachi/demo/transition/transitionDemo.dart';
 import 'package:fluttershuachi/demo/view/pageview.dart';
 import 'package:fluttershuachi/demo/cache_image/cache_image.dart';
 import 'package:fluttershuachi/pages/animation.dart';
@@ -23,7 +24,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/cacheimage',
+      initialRoute: '/transition',
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
@@ -35,9 +36,7 @@ class App extends StatelessWidget {
         '/pageview': (context) => Pageview(),
         '/sliver': (context) => SliverDemo(),
         '/cacheimage': (context) => CacheImage(),
-        
-        
-        
+        '/transition': (context) => TransitionDemo(),
         // '/dio': (context) => dioDemo(),
         // '/imgsaver': (context) => ImgSaver(),
         // '/imgdown': (context) => ImgDown(),
