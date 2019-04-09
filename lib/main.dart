@@ -3,6 +3,7 @@ import 'package:fluttershuachi/demo/imagedown/dioDemo/dioDemo.dart';
 import 'package:fluttershuachi/demo/imagedown/image_picker_saver.dart';
 import 'package:fluttershuachi/demo/imagedown/imgdown/imgdown.dart';
 import 'package:fluttershuachi/demo/layout/layout_demo.dart';
+import 'package:fluttershuachi/demo/router/routerDemo.dart';
 import 'package:fluttershuachi/demo/sliver/slive.dart';
 import 'package:fluttershuachi/demo/state/state_management_demo.dart';
 import 'package:fluttershuachi/demo/transition/transitionDemo.dart';
@@ -24,7 +25,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/sliver',
+      initialRoute: '/router',
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
@@ -37,6 +38,7 @@ class App extends StatelessWidget {
         '/sliver': (context) => SliverDemo(),
         '/cacheimage': (context) => CacheImage(),
         '/transition': (context) => TransitionDemo(),
+        '/router': (context) => RouterDemo(),
         // '/dio': (context) => dioDemo(),
         // '/imgsaver': (context) => ImgSaver(),
         // '/imgdown': (context) => ImgDown(),
