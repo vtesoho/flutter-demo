@@ -9,20 +9,14 @@ class RouterDemo extends StatelessWidget{
           children: <Widget>[
             FlatButton(
               child: Text('home'),
-              onPressed: null,
+              onPressed: () {
+                Navigator.pushNamed(context, '/sliver');
+              },
             ),
             FlatButton(
               child: Text('about'),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      RouterPageOne(
-                        title: 'about',
-                      );
-                    },
-                  ),
-                );
+                Navigator.pushNamed(context, '/routerPageOne');
               },
             ),
           ],
@@ -41,6 +35,12 @@ class RouterPageOne extends StatelessWidget{
       appBar: AppBar(
         title: Text(title),
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
     );
   }
