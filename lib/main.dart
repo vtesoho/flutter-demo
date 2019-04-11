@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttershuachi/demo/form/formDemo.dart';
 import 'package:fluttershuachi/demo/imagedown/dioDemo/dioDemo.dart';
 import 'package:fluttershuachi/demo/imagedown/image_picker_saver.dart';
 import 'package:fluttershuachi/demo/imagedown/imgdown/imgdown.dart';
@@ -26,7 +27,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/listview',  //默认页面，不写默认为home属性的widget
+      initialRoute: '/form',  //默认页面，不写默认为home属性的widget
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
@@ -42,12 +43,16 @@ class App extends StatelessWidget {
         '/router': (context) => RouterDemo(),
         '/listview': (context) => ListViewDemo(),
         '/routerPageOne': (context) => RouterPageOne(title: 'routerTest',),
+        '/form': (context) => FormDemo(),
+        
         // '/dio': (context) => dioDemo(),
         // '/imgsaver': (context) => ImgSaver(),
         // '/imgdown': (context) => ImgDown(),
       },
-      theme: ThemeData(
-        highlightColor: Color.fromARGB(255, 255, 255, 255)
+      theme: ThemeData(  //定义一些主题颜色
+        highlightColor: Color.fromARGB(255, 255, 255, 255),
+        primaryColor: Colors.yellow,
+        accentColor: Color.fromRGBO(3, 54, 255, 1.0),
       )
     );
   }
