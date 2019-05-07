@@ -27,7 +27,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/form',  //默认页面，不写默认为home属性的widget
+      initialRoute: '/state-management',  //默认页面，不写默认为home属性的widget
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
