@@ -8,6 +8,7 @@ import 'package:fluttershuachi/demo/listview/listview.dart';
 import 'package:fluttershuachi/demo/router/routerDemo.dart';
 import 'package:fluttershuachi/demo/sliver/slive.dart';
 import 'package:fluttershuachi/demo/state/state_management_demo.dart';
+import 'package:fluttershuachi/demo/stream/stream_demo.dart';
 import 'package:fluttershuachi/demo/transition/transitionDemo.dart';
 import 'package:fluttershuachi/demo/view/pageview.dart';
 import 'package:fluttershuachi/demo/cache_image/cache_image.dart';
@@ -27,7 +28,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/state-management',  //默认页面，不写默认为home属性的widget
+      initialRoute: '/StreamDemo',  //默认页面，不写默认为home属性的widget
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
@@ -44,6 +45,7 @@ class App extends StatelessWidget {
         '/listview': (context) => ListViewDemo(),
         '/routerPageOne': (context) => RouterPageOne(title: 'routerTest',),
         '/form': (context) => FormDemo(),
+        '/StreamDemo': (context) => StreamDemo(),
         
         // '/dio': (context) => dioDemo(),
         // '/imgsaver': (context) => ImgSaver(),
