@@ -19,6 +19,8 @@ import 'package:fluttershuachi/pages/page_view.dart';
 import 'package:fluttershuachi/pages/share_demo.dart';
 import 'package:fluttershuachi/pages/test_status_demo.dart';
 
+import 'demo/bloc/blocDemo.dart';
+
 void main () => runApp(App());
 
 
@@ -28,7 +30,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/StreamDemo',  //默认页面，不写默认为home属性的widget
+      initialRoute: '/bloc',  //默认页面，不写默认为home属性的widget
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
@@ -46,6 +48,7 @@ class App extends StatelessWidget {
         '/routerPageOne': (context) => RouterPageOne(title: 'routerTest',),
         '/form': (context) => FormDemo(),
         '/StreamDemo': (context) => StreamDemo(),
+        '/bloc': (context) => BlocDemo(),
         
         // '/dio': (context) => dioDemo(),
         // '/imgsaver': (context) => ImgSaver(),
