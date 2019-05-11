@@ -12,6 +12,7 @@ import 'package:fluttershuachi/demo/stream/stream_demo.dart';
 import 'package:fluttershuachi/demo/transition/transitionDemo.dart';
 import 'package:fluttershuachi/demo/view/pageview.dart';
 import 'package:fluttershuachi/demo/cache_image/cache_image.dart';
+import 'package:fluttershuachi/demo/websocker/websockerdemo.dart';
 import 'package:fluttershuachi/pages/animation.dart';
 import 'package:fluttershuachi/pages/home.dart';
 import 'package:fluttershuachi/pages/my_page.dart';
@@ -30,7 +31,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/bloc',  //默认页面，不写默认为home属性的widget
+      initialRoute: '/websocker',  //默认页面，不写默认为home属性的widget
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
@@ -49,7 +50,7 @@ class App extends StatelessWidget {
         '/form': (context) => FormDemo(),
         '/StreamDemo': (context) => StreamDemo(),
         '/bloc': (context) => BlocDemo(),
-        
+        '/websocker': (context) => WebSockerDemo(),
         // '/dio': (context) => dioDemo(),
         // '/imgsaver': (context) => ImgSaver(),
         // '/imgdown': (context) => ImgDown(),
