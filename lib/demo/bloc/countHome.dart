@@ -65,16 +65,20 @@ class CounterProvider extends InheritedWidget {
 
 class CounterBloc {
   int _count = 0;
+  //暴露给外面的stream
   final _counterActionController = StreamController<int>();
   StreamSink<int> get counter => _counterActionController.sink;
 
+  //构建时使用的stream
   final _countController = StreamController<int>();
   Stream<int> get count => _countController.stream;
 
+  //构造外面的stream的监听
   CounterBloc() {
     _counterActionController.stream.listen(onData);
   }
 
+  // 外面的数据有变化就把值add到build的stream上
   void onData(int data) {
     print(data);
     _count = data + _count;
@@ -90,3 +94,6 @@ class CounterBloc {
     print('Bloc');
   }
 }
+
+
+
