@@ -4,6 +4,7 @@ import 'package:fluttershuachi/demo/imagedown/dioDemo/dioDemo.dart';
 import 'package:fluttershuachi/demo/imagedown/image_picker_saver.dart';
 import 'package:fluttershuachi/demo/imagedown/imgdown/imgdown.dart';
 import 'package:fluttershuachi/demo/layout/layout_demo.dart';
+import 'package:fluttershuachi/demo/life_cycle/lifeCycleDemo.dart';
 import 'package:fluttershuachi/demo/listview/listview.dart';
 import 'package:fluttershuachi/demo/responsive/responsiveDemo.dart';
 import 'package:fluttershuachi/demo/router/routerDemo.dart';
@@ -33,7 +34,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/setstatetest',  //默认页面，不写默认为home属性的widget
+      initialRoute: '/lifecycle',  //默认页面，不写默认为home属性的widget
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
@@ -55,6 +56,7 @@ class App extends StatelessWidget {
         '/websocker': (context) => WebSockerDemo(),
         '/responsive': (context) => ResponsiveDemo(),
         '/setstatetest': (context) => SetStateTestDemo(),
+        '/lifecycle': (context) => LifeCycleDemo(),
         // '/dio': (context) => dioDemo(),
         // '/imgsaver': (context) => ImgSaver(),
         // '/imgdown': (context) => ImgDown(),
