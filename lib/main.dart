@@ -7,6 +7,7 @@ import 'package:fluttershuachi/demo/layout/layout_demo.dart';
 import 'package:fluttershuachi/demo/listview/listview.dart';
 import 'package:fluttershuachi/demo/responsive/responsiveDemo.dart';
 import 'package:fluttershuachi/demo/router/routerDemo.dart';
+import 'package:fluttershuachi/demo/setStateTestDemo/set_state_test.dart';
 import 'package:fluttershuachi/demo/sliver/slive.dart';
 import 'package:fluttershuachi/demo/state/state_management_demo.dart';
 import 'package:fluttershuachi/demo/stream/stream_demo.dart';
@@ -32,7 +33,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/responsive',  //默认页面，不写默认为home属性的widget
+      initialRoute: '/setstatetest',  //默认页面，不写默认为home属性的widget
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
@@ -53,6 +54,7 @@ class App extends StatelessWidget {
         '/bloc': (context) => BlocDemo(),
         '/websocker': (context) => WebSockerDemo(),
         '/responsive': (context) => ResponsiveDemo(),
+        '/setstatetest': (context) => SetStateTestDemo(),
         // '/dio': (context) => dioDemo(),
         // '/imgsaver': (context) => ImgSaver(),
         // '/imgdown': (context) => ImgDown(),
