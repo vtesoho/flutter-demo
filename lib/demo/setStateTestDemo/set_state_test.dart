@@ -5,7 +5,9 @@ class SetStateTestDemo extends StatefulWidget {
 
   _SetStateTestDemoState createState() => _SetStateTestDemoState();
 }
-
+/* 
+setState并不是实时的，与vue里面的nexttick是一个道理，会在下一个周期在去执行更新。
+*/
 class _SetStateTestDemoState extends State<SetStateTestDemo> {
   String text = '初始';
   void test() {

@@ -57,6 +57,8 @@ class App extends StatelessWidget {
         '/responsive': (context) => ResponsiveDemo(),
         '/setstatetest': (context) => SetStateTestDemo(),
         '/lifecycle': (context) => LifeCycleDemo(),
+        
+
         // '/dio': (context) => dioDemo(),
         // '/imgsaver': (context) => ImgSaver(),
         // '/imgdown': (context) => ImgDown(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttershuachi/demo/customGestureDetectorWidget/customGestureDetectorWidget.dart';
 
 class LifeCycleDemo extends StatefulWidget {
   LifeCycleDemo({Key key}) : super(key: key);
@@ -6,8 +7,8 @@ class LifeCycleDemo extends StatefulWidget {
   _LifeCycleDemoState createState() => _LifeCycleDemoState();
 }
 
-class _LifeCycleDemoState extends State<LifeCycleDemo> {
 
+class _LifeCycleDemoState extends State<LifeCycleDemo> {
   @override
   void initState() {
     print('看看执行顺序 initState');
@@ -51,12 +52,21 @@ class _LifeCycleDemoState extends State<LifeCycleDemo> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            
-          });
+          setState(() {});
         },
       ),
-      body: Text('sdfsdf'),
+      body: CustomGestureDetectorDemo(
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          color: Colors.blue,
+          child: Column(
+            children: <Widget>[
+              Text('sdfsdf'),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
