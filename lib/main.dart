@@ -16,6 +16,7 @@ import 'package:fluttershuachi/demo/transition/transitionDemo.dart';
 import 'package:fluttershuachi/demo/view/pageview.dart';
 import 'package:fluttershuachi/demo/cache_image/cache_image.dart';
 import 'package:fluttershuachi/demo/websocker/websockerdemo.dart';
+import 'package:fluttershuachi/demo/widget/richtext.dart';
 import 'package:fluttershuachi/pages/animation.dart';
 import 'package:fluttershuachi/pages/home.dart';
 import 'package:fluttershuachi/pages/my_page.dart';
@@ -25,16 +26,31 @@ import 'package:fluttershuachi/pages/test_status_demo.dart';
 
 import 'demo/bloc/blocDemo.dart';
 
-void main () => runApp(App());
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
+import './demo/redux/reducers.dart';
 
+
+
+void main() {
+  Store<AppState> store = Store<AppState>(
+    mainReducer,
+    initialState: AppState(
+      main: MainPageState(),
+      auth: AuthState(),
+    ),
+    middleware: [loggingMiddleware],
+  );
+
+  runApp(App());
+}
 
 class App extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/lifecycle',  //默认页面，不写默认为home属性的widget
+      initialRoute: '/richtext', //默认页面，不写默认为home属性的widget
       routes: {
         '/': (context) => Home(),
         '/animation': (context) => AnimationDemo(),
@@ -49,7 +65,9 @@ class App extends StatelessWidget {
         '/transition': (context) => TransitionDemo(),
         '/router': (context) => RouterDemo(),
         '/listview': (context) => ListViewDemo(),
-        '/routerPageOne': (context) => RouterPageOne(title: 'routerTest',),
+        '/routerPageOne': (context) => RouterPageOne(
+              title: 'routerTest',
+            ),
         '/form': (context) => FormDemo(),
         '/StreamDemo': (context) => StreamDemo(),
         '/bloc': (context) => BlocDemo(),
@@ -57,18 +75,18 @@ class App extends StatelessWidget {
         '/responsive': (context) => ResponsiveDemo(),
         '/setstatetest': (context) => SetStateTestDemo(),
         '/lifecycle': (context) => LifeCycleDemo(),
-        
+        '/richtext': (context) => RichTextDemo(),
 
         // '/dio': (context) => dioDemo(),
         // '/imgsaver': (context) => ImgSaver(),
         // '/imgdown': (context) => ImgDown(),
       },
-      theme: ThemeData(  //定义一些主题颜色
+      theme: ThemeData(
+        //定义一些主题颜色
         highlightColor: Color.fromARGB(255, 255, 255, 255),
         primaryColor: Colors.yellow,
         accentColor: Color.fromRGBO(3, 54, 255, 1.0),
-      )
+      ),
     );
   }
 }
-

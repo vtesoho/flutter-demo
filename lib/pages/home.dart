@@ -9,7 +9,22 @@ class Home extends StatelessWidget {
         title: Text('Home'),
       ),
       body: Center(
-        child: Text('Home Boyd'),
+        child: Column(
+          children: <Widget>[
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/listview');
+              },
+              child: Text('listview'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/form');
+              },
+              child: Text('form'),
+            ),
+          ],
+        ),
       ),
     );
   }
