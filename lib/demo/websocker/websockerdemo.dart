@@ -52,9 +52,9 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // widget.channel.stream.listen((onData){
-    //   print('onData');
-    // });
+    widget.channel.stream.listen((onData){
+      print('onData');
+    });
   }
   analyzeData(data) {
     if(data == null) return;

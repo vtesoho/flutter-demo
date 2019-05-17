@@ -1,16 +1,9 @@
-enum Actions{Increase,Login,LoginSuccess,LogoutSuccess}
+
 class LoginSuccessAction{
-
+  final String account;
+  LoginSuccessAction({this.account});
 }
 
-class LoginSuccess{
-  
-}
 
 class LogoutSuccess{
-  
-}
-
-class AuthStateAction {
-  
 }

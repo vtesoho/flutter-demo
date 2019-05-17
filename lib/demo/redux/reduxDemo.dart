@@ -3,8 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'dart:async' as Async;
 
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:fluttershuachi/demo/redux/reducers.dart';
+import 'package:fluttershuachi/store/app/AppState.dart';
 import 'package:redux/redux.dart';
+// import 'package:fluttershuachi/demo/redux/reducers.dart';
+import '../../store/module/auth/action.dart';
 
 typedef Future CallLogin(String userName, String pwd);
 
@@ -20,65 +22,6 @@ class _ReduxDemoState extends State<ReduxDemo> {
   String _userName;
   String _pwd;
   bool isLogin;
-
-  _handlePress(s, context) => () async {
-        FormState state = Form.of(s.context);
-        if (state.validate()) {
-          // 验证通过
-          state.save();
-          print('login success');
-          try {
-            if (_pwd != "123456") {
-              throw ("登录失败，密码必须是123456");
-            }
-            print("登录成功!$_userName");
-            StoreConnector(
-                builder: (BuildContext context, Store<AppState> store) {
-              print('执行没有');
-              store.dispatch(new LoginSuccessAction(account: 'asdfasfasdf'));
-            }, converter: (Store<AppState> store) {
-              return store;
-            });
-
-            showDialog(
-                context: context,
-                builder: (c) {
-                  return CupertinoAlertDialog(
-                    title: Text('登陆成功'),
-                    actions: <Widget>[
-                      Center(
-                        child: RaisedButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text('I Know'),
-                        ),
-                      )
-                    ],
-                  );
-                });
-          } catch (e) {
-            showDialog(
-              context: context,
-              builder: (c) {
-                return CupertinoAlertDialog(
-                  title: Text('登陆失败'),
-                  actions: <Widget>[
-                    Center(
-                      child: RaisedButton(
-                        child: Text('ok'),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                    )
-                  ],
-                );
-              },
-            );
-          }
-        }
-      };
 
   @override
   Widget build(BuildContext context) {
@@ -115,13 +58,12 @@ class _ReduxDemoState extends State<ReduxDemo> {
                 FormField(
                   builder: (FormFieldState fState) {
                     return Center(
-                      child: StoreConnector(builder:
-                          (BuildContext context, Store<AppState> store) {
+                      child: StoreConnector(builder:(BuildContext context, Store<AppState> store) {
                         return RaisedButton(
                           child: Text('登录'),
                           onPressed: () {
-                            store.dispatch(new LoginSuccessAction(
-                                account: 'asdfasdfasdf'));
+                            print('sfsdfsdfds');
+                            store.dispatch(new LoginSuccessAction(account: 'asdfasdfasdf'));
                           },
                         );
                       }, converter: (Store<AppState> store) {
@@ -138,7 +80,7 @@ class _ReduxDemoState extends State<ReduxDemo> {
                         return RaisedButton(
                           child: Text('登出'),
                           onPressed: () {
-                            store.dispatch(Actions.LogoutSuccess);
+                            store.dispatch(LogoutSuccess());
                           },
                         );
                       }, converter: (Store<AppState> store) {

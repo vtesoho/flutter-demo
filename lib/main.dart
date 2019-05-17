@@ -29,7 +29,6 @@ import 'demo/bloc/blocDemo.dart';
 
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
-// import './demo/redux/reducers.dart';
 import 'demo/redux/reduxDemo.dart';
 
 import './store/index.dart';
@@ -37,30 +36,19 @@ import './store/index.dart';
 
 
 void main() {
-  // Store<AppState> store = Store<AppState>(
-  //   mainReducer,
-  //   initialState: AppState(
-  //     main: MainPageState(),
-  //     auth: AuthState(),
-  //   ),
-  //   middleware: [loggingMiddleware],
-  // );
-  
-
-  runApp(App(
-    // store: store,
-  ));
+  runApp(App());
 }
 
 class App extends StatelessWidget {
   App({Key key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return StoreProvider(
       store: createStore(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/richtext', //默认页面，不写默认为home属性的widget
+        initialRoute: '/', //默认页面，不写默认为home属性的widget
         routes: {
           '/': (context) => Home(),
           '/animation': (context) => AnimationDemo(),
