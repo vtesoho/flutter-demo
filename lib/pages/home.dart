@@ -28,6 +28,18 @@ class Home extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
+                Navigator.of(context).pushNamed('/websocker');
+              },
+              child: Text('websocker'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/random');
+              },
+              child: Text('random'),
+            ),
+            RaisedButton(
+              onPressed: () {
                 Navigator.of(context).pushNamed('/redux');
               },
               child: Text('reduxDemo'),

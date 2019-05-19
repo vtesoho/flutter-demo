@@ -6,6 +6,7 @@ import 'package:fluttershuachi/demo/imagedown/imgdown/imgdown.dart';
 import 'package:fluttershuachi/demo/layout/layout_demo.dart';
 import 'package:fluttershuachi/demo/life_cycle/lifeCycleDemo.dart';
 import 'package:fluttershuachi/demo/listview/listview.dart';
+import 'package:fluttershuachi/demo/random/random.dart';
 import 'package:fluttershuachi/demo/responsive/responsiveDemo.dart';
 import 'package:fluttershuachi/demo/router/routerDemo.dart';
 import 'package:fluttershuachi/demo/setStateTestDemo/set_state_test.dart';
@@ -75,6 +76,7 @@ class App extends StatelessWidget {
           '/lifecycle': (context) => LifeCycleDemo(),
           '/richtext': (context) => RichTextDemo(),
           '/redux': (context) => ReduxDemo(),
+          '/random': (context) => RandomDemo(),
 
 
           // '/dio': (context) => dioDemo(),

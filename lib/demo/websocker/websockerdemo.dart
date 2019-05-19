@@ -1,11 +1,14 @@
+import 'dart:async';
 import 'dart:convert';
-
+import 'dart:io';
+import 'dart:math' show Random;
 import 'package:flutter/foundation.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:fluttershuachi/store/app/AppState.dart';
+import 'package:redux/redux.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:flutter/material.dart';
-import 'package:web_socket_channel/web_socket_channel.dart';
-
-
+import '../../store/module/auth/action.dart';
 /* 
 增加了一个server服务，用node跑起来连接测试用。
 var WebSocketServer = require('ws').Server,
@@ -39,7 +42,7 @@ wss.on('connection', function (ws) {
 
 class WebSockerDemo extends StatefulWidget {
   WebSockerDemo({Key key}) : super(key: key);
-  final WebSocketChannel channel = IOWebSocketChannel.connect('ws://192.168.9.55:8181');
+  
   
   
   _WebSockerDemoState createState() => _WebSockerDemoState();
@@ -47,23 +50,91 @@ class WebSockerDemo extends StatefulWidget {
 
 class _WebSockerDemoState extends State<WebSockerDemo> {
   TextEditingController _controller = new TextEditingController();
+  Timer _time;
+  WebSocket ws;
+  IOWebSocketChannel channel;
+  // final IOWebSocketChannel channel = IOWebSocketChannel(ws);
+  // Future connection() async {
+  //   try {
+  //     ws = await WebSocket.connect('ws://192.168.9.55:8181');
+  //     // ws = await WebSocket.connect('ws://echo.websocket.org');
+  //     // ws = await WebSocket.connect('wss://git-debug.shuachi.com/wss');
+  //   } catch (e) {
+  //     return false;
+  //   }
+  //   ws.listen(
+  //     (data) {
+  //       print(data);
+  //       analyzeData(data);
+  //     },
+  //     onDone: () {
+  //       print('ws close onDone');
+  //       reconnect();
+  //     },
+  //     onError: (error) {
+  //       print('ws close error = $error');
+  //     },
+  //   );
+  //   return ws;
+  // }
+  // reconnect() {
+  //   connection().then((onValue){
+  //     if(onValue == false){
+  //       print('断线重连！！！');
+  //       Timer(Duration(seconds: 10), (){reconnect();});
+  //     }else{
+  //       ws = onValue;
+  //     }
+  //   });
+  // }
+  // Store<AppState> _getStore() {
+  //   if (context == null) {
+  //     print("YYState null");
+  //     return null;
+  //   }
+  //   return StoreProvider.of(context);
+  // }
+  connection() {
+    channel = IOWebSocketChannel.connect("ws://192.168.9.55:8181");
+    print(channel.readyState);
+    channel.stream.listen((message) {
+      print('$message  ------${channel.readyState}');
+      // _getStore()?.dispatch(LoginSuccessAction(account: '更新完了吗？$message'));
+      StoreProvider.of(context).dispatch(LoginSuccessAction(account: '更新完了吗？$message'));
+      
+
+    },onDone: (){
+      print('onDone');
+    },onError: (e) {
+      print('onError');
+    });
+    
+  }
   
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    widget.channel.stream.listen((onData){
-      print('onData');
+    connection();
+    _time = Timer.periodic(Duration(seconds: 3),(_){
+      if(channel == null || channel.readyState != 1){
+        print('断线重连！！！');
+        connection();
+      }
+      
     });
+    
   }
+
+
   analyzeData(data) {
     if(data == null) return;
     var returnobject = json.decode(data);
     // print(returnobject);
-    if(returnobject['aa'] != ''){
+    if(returnobject['aa'] != null){
       print('aa start ${returnobject['aa']}');
     }
-    if(returnobject['bb'] != ''){
+    if(returnobject['bb'] != null){
       print('bb start ${returnobject['bb']}');
     }
   }
@@ -84,23 +155,48 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
                 decoration: new InputDecoration(labelText: 'Send a message'),
               ),
             ),
-            new StreamBuilder(
-              stream: widget.channel.stream,
-              builder: (context, snapshot) {
-                // print('${snapshot.hasData}');
-                // print('${snapshot.connectionState}');
-                analyzeData(snapshot.data);
-                return new Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 24.0),
-                  child: Text(snapshot.hasData ? '${snapshot.data}' : ''),
+            // new StreamBuilder(
+            //   stream: channel.stream,
+            //   builder: (context, snapshot) {
+            //     // print('${snapshot.hasData}');
+            //     // print('${snapshot.connectionState}');
+            //     analyzeData(snapshot.data);
+            //     return new Padding(
+            //       padding: const EdgeInsets.symmetric(vertical: 24.0),
+            //       child: Text(snapshot.hasData ? '${snapshot.data}' : ''),
+            //     );
+            //   },
+            // )
+            IconButton(
+              icon: Icon(Icons.add),
+              onPressed: (){
+                connection();
+              },
+            ),
+            StoreConnector<AppState,String>(
+              converter: (store) => store.state.authState.account,
+              builder: (context, count) {
+                return Text(
+                  count.toString(),
+                  style: Theme.of(context).textTheme.display1,
                 );
               },
-            )
+            ),
           ],
         ),
       ),
+      
       floatingActionButton: new FloatingActionButton(
-        onPressed: _sendMessage,
+        onPressed: (){
+          Map test = {
+            'sid':'session.1633499165045705',
+            'sign': 'bdd36e8ec54df845f83528883c594607',
+            'device_id': '1a67efe36a6965ac',
+          };
+          // channel.sink.add(json.encode(test));
+          channel.sink.close();
+          
+        },
         tooltip: 'Send message',
         child: new Icon(Icons.send),
       ), // This trailing comma makes auto-formatting nicer for build methods.
@@ -109,18 +205,29 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
 
   void _sendMessage() {
     if (_controller.text.isNotEmpty) {
-      widget.channel.sink.add(_controller.text);
+      // channel.sink.add(_controller.text);
     }
   }
 
+  
+
   @override
   void dispose() {
-    widget.channel.sink.close();
+
+    if(_time != null){
+      _time.cancel();
+    }
+    if(channel != null){
+      channel.sink.close();
+    }
+    // print(channel.closeCode);
+    // print(channel.closeReason);
+    // channel.sink.close();
+    // print(channel.closeCode);
+    // print(channel.closeReason);
     super.dispose();
     
   }
 }
-
-
 
 
