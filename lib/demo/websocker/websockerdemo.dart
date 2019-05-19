@@ -3,11 +3,12 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math' show Random;
 import 'package:flutter/foundation.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:fluttershuachi/store/app/AppState.dart';
-import 'package:redux/redux.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:flutter/material.dart';
+
+import 'package:redux/redux.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:fluttershuachi/store/app/AppState.dart';
 import '../../store/module/auth/action.dart';
 /* 
 增加了一个server服务，用node跑起来连接测试用。
@@ -87,21 +88,21 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
   //     }
   //   });
   // }
-  // Store<AppState> _getStore() {
-  //   if (context == null) {
-  //     print("YYState null");
-  //     return null;
-  //   }
-  //   return StoreProvider.of(context);
-  // }
+  Store<AppState> _getStore() {
+    if (context == null) {
+      print("YYState null");
+      return null;
+    }
+    return StoreProvider.of(context);
+  }
   connection() {
     channel = IOWebSocketChannel.connect("ws://192.168.9.55:8181");
     print(channel.readyState);
     channel.stream.listen((message) {
       print('$message  ------${channel.readyState}');
-      // _getStore()?.dispatch(LoginSuccessAction(account: '更新完了吗？$message'));
-      StoreProvider.of(context).dispatch(LoginSuccessAction(account: '更新完了吗？$message'));
-      
+
+      _getStore()?.dispatch(LoginSuccessAction(account: '更新完了吗？$message'));
+      print(_getStore().state.authState.account);
 
     },onDone: (){
       print('onDone');
