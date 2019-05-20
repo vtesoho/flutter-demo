@@ -10,6 +10,10 @@ import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttershuachi/store/app/AppState.dart';
 import '../../store/module/auth/action.dart';
+
+
+import './state.dart';
+
 /* 
 增加了一个server服务，用node跑起来连接测试用。
 var WebSocketServer = require('ws').Server,
@@ -52,8 +56,16 @@ class WebSockerDemo extends StatefulWidget {
 class _WebSockerDemoState extends State<WebSockerDemo> {
   TextEditingController _controller = new TextEditingController();
   Timer _time;
+  Timer _timeone;
   WebSocket ws;
   IOWebSocketChannel channel;
+
+  
+
+  WebSocketState webSocketState = WebSocketState(callback: _callback);
+  static _callback(name){
+    print('+++++++++++++++++++  $name');
+  }
   // final IOWebSocketChannel channel = IOWebSocketChannel(ws);
   // Future connection() async {
   //   try {
@@ -99,7 +111,7 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
     channel = IOWebSocketChannel.connect("ws://192.168.9.55:8181");
     print(channel.readyState);
     channel.stream.listen((message) {
-      print('$message  ------${channel.readyState}');
+      print('websocker服务器返回数据 ---  $message  ------${channel.readyState}');
 
       _getStore()?.dispatch(LoginSuccessAction(account: '更新完了吗？$message'));
       print(_getStore().state.authState.account);
@@ -109,21 +121,36 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
     },onError: (e) {
       print('onError');
     });
-    
+  }
+
+  reconnection() {
+    _time = Timer.periodic(Duration(seconds: 3),(_){
+      print('断线重连000000000-----------start');
+      print(_timeone);
+      if(_timeone == null){
+        print('断线重连11111111');
+        if(channel == null || channel.readyState != 1){
+          print('断线重连22222222');
+          int randomnum = Random().nextInt(5) + 5;
+          _timeone = Timer(Duration(seconds: randomnum),(){
+            print('断线重连3333333    时间  $randomnum');
+            _timeone = null;
+            connection();
+          });
+          print(_timeone);
+        }  
+      }
+      print('断线重连000000000-----------end');
+    });
   }
   
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    connection();
-    _time = Timer.periodic(Duration(seconds: 3),(_){
-      if(channel == null || channel.readyState != 1){
-        print('断线重连！！！');
-        connection();
-      }
-      
-    });
+    // connection();
+    // reconnection();
+    webSocketState.start();
     
   }
 
@@ -218,14 +245,15 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
     if(_time != null){
       _time.cancel();
     }
+    if(_timeone != null){
+      _timeone.cancel();
+    }
+    
     if(channel != null){
       channel.sink.close();
     }
-    // print(channel.closeCode);
-    // print(channel.closeReason);
-    // channel.sink.close();
-    // print(channel.closeCode);
-    // print(channel.closeReason);
+    webSocketState.close();
+    
     super.dispose();
     
   }
