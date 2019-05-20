@@ -62,9 +62,9 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
 
   
 
-  WebSocketState webSocketState = WebSocketState(callback: _callback);
+  
   static _callback(name){
-    print('+++++++++++++++++++  $name');
+    
   }
   // final IOWebSocketChannel channel = IOWebSocketChannel(ws);
   // Future connection() async {
@@ -100,21 +100,22 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
   //     }
   //   });
   // }
-  Store<AppState> _getStore() {
-    if (context == null) {
-      print("YYState null");
-      return null;
-    }
-    return StoreProvider.of(context);
-  }
+  // Store<AppState> _getStore() {
+  //   if (context == null) {
+  //     print("YYState null");
+  //     return null;
+  //   }
+  //   return StoreProvider.of(context);
+  // }
+  Store<AppState> store;
   connection() {
     channel = IOWebSocketChannel.connect("ws://192.168.9.55:8181");
     print(channel.readyState);
     channel.stream.listen((message) {
       print('websocker服务器返回数据 ---  $message  ------${channel.readyState}');
 
-      _getStore()?.dispatch(LoginSuccessAction(account: '更新完了吗？$message'));
-      print(_getStore().state.authState.account);
+      store?.dispatch(LoginSuccessAction(account: '更新完了吗？$message'));
+      print(store.state.authState.account);
 
     },onDone: (){
       print('onDone');
@@ -150,7 +151,7 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
     super.initState();
     // connection();
     // reconnection();
-    webSocketState.start();
+    
     
   }
 
@@ -252,7 +253,7 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
     if(channel != null){
       channel.sink.close();
     }
-    webSocketState.close();
+    
     
     super.dispose();
     

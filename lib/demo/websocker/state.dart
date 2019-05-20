@@ -1,8 +1,13 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
-import 'dart:ui';
 
-import 'package:flutter/material.dart';
+// import 'package:fluttershuachi/demo/redux/reducers.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:fluttershuachi/store/app/AppState.dart';
+import 'package:fluttershuachi/store/module/auth/action.dart';
+import 'package:path/path.dart';
+import 'package:redux/redux.dart';
 import 'package:web_socket_channel/io.dart';
 
 class WebSocketState {
@@ -11,14 +16,29 @@ class WebSocketState {
   Timer _time;  //轮循检测时间
   Timer _timeone;  //重连间隔时间
   var callback; //传入处理返回数据的方法
-  WebSocketState({this.url = 'ws://192.168.9.55:8181',@required this.callback});
+  Store store;
+  WebSocketState({this.url = 'ws://192.168.9.55:8181',this.store});
 
+  analyzeData(data) {
+    if(data == null) return;
+    var returnobject = json.decode(data);
+    // print(returnobject);
+    if(returnobject['aa'] != null){
+      print('aa start ${returnobject['aa']}');
+    }
+    if(returnobject['bb'] != null){
+      
+      store.dispatch(LoginSuccessAction(account: '更新完了吗？${returnobject['bb']}'));
+      
+      print('bb start ${returnobject['bb']}');
+    }
+  }
   //连接方法
   _connection() {
     channel = IOWebSocketChannel.connect(url);
     print(channel.readyState);
-    channel.stream.listen((message) {
-      callback(message);
+    channel.stream.listen((data) {
+      analyzeData(data);
       // print('websocker服务器返回数据 ---  $message  ------${channel.readyState}');
       // 返回的是一个对象
 
