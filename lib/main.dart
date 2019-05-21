@@ -18,6 +18,7 @@ import 'package:fluttershuachi/demo/view/pageview.dart';
 import 'package:fluttershuachi/demo/cache_image/cache_image.dart';
 import 'package:fluttershuachi/demo/websocker/websockerdemo.dart';
 import 'package:fluttershuachi/demo/widget/richtext.dart';
+import 'package:fluttershuachi/demo/widget/widgetRouter.dart';
 import 'package:fluttershuachi/pages/animation.dart';
 import 'package:fluttershuachi/pages/home.dart';
 import 'package:fluttershuachi/pages/my_page.dart';
@@ -57,6 +58,7 @@ class App extends StatelessWidget {
         initialRoute: '/', //默认页面，不写默认为home属性的widget
         routes: {
           '/': (context) => Home(),
+          '/widget': (context) => WidgetAll(),
           '/animation': (context) => AnimationDemo(),
           '/teststatus': (context) => TestStatusDemo(),
           // '/shart': (context) => ShartDemo(),

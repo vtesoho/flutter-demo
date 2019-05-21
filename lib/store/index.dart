@@ -1,5 +1,6 @@
 
-import 'package:fluttershuachi/demo/websocker/state.dart';
+import 'package:fluttershuachi/demo/websocker/analyzeData.dart';
+import 'package:fluttershuachi/demo/websocker/webSocket.dart';
 import 'package:redux/redux.dart';
 import 'app/AppState.dart';
 
@@ -14,8 +15,8 @@ Store<AppState> createStore() {
     appReducer,
     initialState: AppState.init(),
   );
-
-  WebSocketState webSocketState = WebSocketState(store:store);
+  AnalyzeData analyzeData = AnalyzeData(store);
+  WebSocketState webSocketState = WebSocketState(store:store,analyzeData:analyzeData);
   webSocketState.start();
   
   return store;

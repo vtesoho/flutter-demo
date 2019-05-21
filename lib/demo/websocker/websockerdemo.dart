@@ -12,7 +12,7 @@ import 'package:fluttershuachi/store/app/AppState.dart';
 import '../../store/module/auth/action.dart';
 
 
-import './state.dart';
+import './webSocket.dart';
 
 /* 
 增加了一个server服务，用node跑起来连接测试用。
@@ -62,51 +62,6 @@ class _WebSockerDemoState extends State<WebSockerDemo> {
 
   
 
-  
-  static _callback(name){
-    
-  }
-  // final IOWebSocketChannel channel = IOWebSocketChannel(ws);
-  // Future connection() async {
-  //   try {
-  //     ws = await WebSocket.connect('ws://192.168.9.55:8181');
-  //     // ws = await WebSocket.connect('ws://echo.websocket.org');
-  //     // ws = await WebSocket.connect('wss://git-debug.shuachi.com/wss');
-  //   } catch (e) {
-  //     return false;
-  //   }
-  //   ws.listen(
-  //     (data) {
-  //       print(data);
-  //       analyzeData(data);
-  //     },
-  //     onDone: () {
-  //       print('ws close onDone');
-  //       reconnect();
-  //     },
-  //     onError: (error) {
-  //       print('ws close error = $error');
-  //     },
-  //   );
-  //   return ws;
-  // }
-  // reconnect() {
-  //   connection().then((onValue){
-  //     if(onValue == false){
-  //       print('断线重连！！！');
-  //       Timer(Duration(seconds: 10), (){reconnect();});
-  //     }else{
-  //       ws = onValue;
-  //     }
-  //   });
-  // }
-  // Store<AppState> _getStore() {
-  //   if (context == null) {
-  //     print("YYState null");
-  //     return null;
-  //   }
-  //   return StoreProvider.of(context);
-  // }
   Store<AppState> store;
   connection() {
     channel = IOWebSocketChannel.connect("ws://192.168.9.55:8181");

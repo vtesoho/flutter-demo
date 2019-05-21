@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
         title: Text('Home'),
       ),
       body: Center(
-        child: Column(
+        child: Wrap(
           children: <Widget>[
             RaisedButton(
               onPressed: () {
@@ -43,6 +43,12 @@ class Home extends StatelessWidget {
                 Navigator.of(context).pushNamed('/redux');
               },
               child: Text('reduxDemo'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/widget');
+              },
+              child: Text('widget'),
             ),
             Container(
               child: new StoreConnector<AppState,AppState>(builder: (BuildContext context,AppState state){
