@@ -7,8 +7,8 @@ class SnackBarDemo extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    SingletonDemo singleton = SingletonDemo('bbbbbbbbbbbbb');
-    singleton.test();
+    
+    SingletonDemo(data: '在次初始化').test();
     return Scaffold(
       appBar: AppBar(
         title: Text('SnackBarDemo'),

@@ -53,7 +53,7 @@ class App extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    SingletonDemo singleton = SingletonDemo('sssssssssss');
+    SingletonDemo(data:'main初始化!').test();
     return StoreProvider(
       store: createStore(),
       child: MaterialApp(

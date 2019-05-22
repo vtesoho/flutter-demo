@@ -3,7 +3,7 @@ class SingletonDemo {
 
 
   var store;
-  factory SingletonDemo(data) => _getInstance(data);
+  factory SingletonDemo({data}) => _getInstance(data);
 
   static SingletonDemo _instance;
   SingletonDemo._internal(data) {
@@ -19,7 +19,7 @@ class SingletonDemo {
   }
 
   void test(){
-    print('store-----_$store');
+    print('store-----$store');
   }
 
 }
