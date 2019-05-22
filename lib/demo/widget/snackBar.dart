@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fluttershuachi/demo/websocker/analyzeData.dart';
+import 'package:fluttershuachi/model/singleton/singletonDemo.dart';
 
 class SnackBarDemo extends StatelessWidget {
   const SnackBarDemo({Key key}) : super(key: key);
-
+  
   @override
   Widget build(BuildContext context) {
+    SingletonDemo singleton = SingletonDemo('bbbbbbbbbbbbb');
+    singleton.test();
     return Scaffold(
       appBar: AppBar(
         title: Text('SnackBarDemo'),

@@ -19,6 +19,7 @@ import 'package:fluttershuachi/demo/cache_image/cache_image.dart';
 import 'package:fluttershuachi/demo/websocker/websockerdemo.dart';
 import 'package:fluttershuachi/demo/widget/richtext.dart';
 import 'package:fluttershuachi/demo/widget/widgetRouter.dart';
+import 'package:fluttershuachi/model/singleton/singletonDemo.dart';
 import 'package:fluttershuachi/pages/animation.dart';
 import 'package:fluttershuachi/pages/home.dart';
 import 'package:fluttershuachi/pages/my_page.dart';
@@ -38,6 +39,7 @@ import './store/index.dart';
 
 
 void main() {
+  
   runApp(App());
 }
 
@@ -51,6 +53,7 @@ class App extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    SingletonDemo singleton = SingletonDemo('sssssssssss');
     return StoreProvider(
       store: createStore(),
       child: MaterialApp(
