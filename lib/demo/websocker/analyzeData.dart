@@ -28,5 +28,10 @@ class AnalyzeData {
   }
 
 
+  test(){
+    print(store);
+  }
+
+
 
 }

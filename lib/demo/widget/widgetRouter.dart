@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:fluttershuachi/demo/widget/snackBar.dart';
 
 class WidgetAll extends StatelessWidget {
   const WidgetAll({Key key}) : super(key: key);
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
