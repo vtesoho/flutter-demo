@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttershuachi/demo/router/topReminder.dart';
 
 import 'package:fluttershuachi/demo/widget/snackBar.dart';
 
@@ -24,8 +25,14 @@ class WidgetAll extends StatelessWidget {
                 );
               },
               child: Text('snackbar'),
-              
             ),
+            FlatButton(
+              onPressed: (){
+                openTopReminder(context,'snackbar测试toprminder');
+              },
+              child: Text('snackbar'),
+            ),
+            
 
           ],
         ),
