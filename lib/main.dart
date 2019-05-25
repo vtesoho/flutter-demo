@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttershuachi/components/topReminder.dart';
 import 'package:fluttershuachi/demo/form/formDemo.dart';
 import 'package:fluttershuachi/demo/imagedown/dioDemo/dioDemo.dart';
 import 'package:fluttershuachi/demo/imagedown/image_picker_saver.dart';
@@ -27,6 +26,7 @@ import 'package:fluttershuachi/pages/my_page.dart';
 import 'package:fluttershuachi/pages/page_view.dart';
 import 'package:fluttershuachi/pages/share_demo.dart';
 import 'package:fluttershuachi/pages/test_status_demo.dart';
+import 'package:oktoast/oktoast.dart';
 
 
 import 'demo/bloc/blocDemo.dart';
@@ -57,7 +57,7 @@ class App extends StatelessWidget {
     SingletonDemo(data:'main初始化!').test();
     return StoreProvider(
       store: createStore(),
-      child: curtomTopReminder(
+      child: OKToast(
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           initialRoute: '/', //默认页面，不写默认为home属性的widget

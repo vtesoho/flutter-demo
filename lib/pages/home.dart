@@ -3,9 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttershuachi/demo/router/formatTest.dart';
-import 'package:fluttershuachi/demo/router/routerDemoa.dart';
-import 'package:fluttershuachi/demo/router/topReminder.dart';
-import 'package:fluttershuachi/demo/widget/snackBar.dart';
+import 'package:fluttershuachi/demo/router/oktoast.dart';
 import 'package:redux/redux.dart';
 import '../store/app/AppState.dart';
 
@@ -79,6 +77,18 @@ class Home extends StatelessWidget {
               },
               child: Text('RegExpDemo'),
             ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => OkToastDemo(),
+                  ),
+                );
+              },
+              child: Text('OkToastDemo'),
+            ),
+            
             RaisedButton(
               onPressed: () {},
               child: Text('Router'),

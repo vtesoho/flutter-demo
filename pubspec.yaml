@@ -26,6 +26,7 @@ dependencies:
   page_transition: ^1.0.9
   redux: ^3.0.0
   flutter_redux: ^0.5.3
+  oktoast: ^2.1.7
 
 
 dev_dependencies:
