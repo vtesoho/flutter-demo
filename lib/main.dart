@@ -13,6 +13,7 @@ import 'package:fluttershuachi/demo/setStateTestDemo/set_state_test.dart';
 import 'package:fluttershuachi/demo/sliver/slive.dart';
 import 'package:fluttershuachi/demo/state/state_management_demo.dart';
 import 'package:fluttershuachi/demo/stream/stream_demo.dart';
+import 'package:fluttershuachi/demo/toast/toastDemo.dart';
 import 'package:fluttershuachi/demo/transition/transitionDemo.dart';
 import 'package:fluttershuachi/demo/view/pageview.dart';
 import 'package:fluttershuachi/demo/cache_image/cache_image.dart';
@@ -55,52 +56,51 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SingletonDemo(data:'main初始化!').test();
+    
     return StoreProvider(
       store: createStore(),
-      child: OKToast(
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          initialRoute: '/', //默认页面，不写默认为home属性的widget
-          routes: {
-            '/': (context) => Home(),
-            '/widget': (context) => WidgetAll(),
-            '/animation': (context) => AnimationDemo(),
-            '/teststatus': (context) => TestStatusDemo(),
-            // '/shart': (context) => ShartDemo(),
-            '/state-management': (context) => StateManagementDemo(),
-            '/mypage': (context) => MyPage(),
-            '/layout': (context) => LayoutDemo(),
-            '/pageview': (context) => Pageview(),
-            '/sliver': (context) => SliverDemo(),
-            '/cacheimage': (context) => CacheImage(),
-            '/transition': (context) => TransitionDemo(),
-            '/router': (context) => RouterDemo(),
-            '/listview': (context) => ListViewDemo(),
-            '/routerPageOne': (context) => RouterPageOne(
-                  title: 'routerTest',
-                ),
-            '/form': (context) => FormDemo(),
-            '/StreamDemo': (context) => StreamDemo(),
-            '/bloc': (context) => BlocDemo(),
-            '/websocker': (context) => WebSockerDemo(),
-            '/responsive': (context) => ResponsiveDemo(),
-            '/setstatetest': (context) => SetStateTestDemo(),
-            '/lifecycle': (context) => LifeCycleDemo(),
-            '/richtext': (context) => RichTextDemo(),
-            '/redux': (context) => ReduxDemo(),
-            '/random': (context) => RandomDemo(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/', //默认页面，不写默认为home属性的widget
+        routes: {
+          '/': (context) => Home(),
+          '/widget': (context) => WidgetAll(),
+          '/animation': (context) => AnimationDemo(),
+          '/teststatus': (context) => TestStatusDemo(),
+          // '/shart': (context) => ShartDemo(),
+          '/state-management': (context) => StateManagementDemo(),
+          '/mypage': (context) => MyPage(),
+          '/layout': (context) => LayoutDemo(),
+          '/pageview': (context) => Pageview(),
+          '/sliver': (context) => SliverDemo(),
+          '/cacheimage': (context) => CacheImage(),
+          '/transition': (context) => TransitionDemo(),
+          '/router': (context) => RouterDemo(),
+          '/listview': (context) => ListViewDemo(),
+          '/routerPageOne': (context) => RouterPageOne(
+                title: 'routerTest',
+              ),
+          '/form': (context) => FormDemo(),
+          '/StreamDemo': (context) => StreamDemo(),
+          '/bloc': (context) => BlocDemo(),
+          '/websocker': (context) => WebSockerDemo(),
+          '/responsive': (context) => ResponsiveDemo(),
+          '/setstatetest': (context) => SetStateTestDemo(),
+          '/lifecycle': (context) => LifeCycleDemo(),
+          '/richtext': (context) => RichTextDemo(),
+          '/redux': (context) => ReduxDemo(),
+          '/random': (context) => RandomDemo(),
 
 
-            // '/dio': (context) => dioDemo(),
-            // '/imgsaver': (context) => ImgSaver(),
-            // '/imgdown': (context) => ImgDown(),
-          },
-          theme: ThemeData(
-            //定义一些主题颜色
-            highlightColor: Color.fromARGB(255, 255, 255, 255),
-            primaryColor: Colors.yellow,
-            accentColor: Color.fromRGBO(3, 54, 255, 1.0),
-          ),
+          // '/dio': (context) => dioDemo(),
+          // '/imgsaver': (context) => ImgSaver(),
+          // '/imgdown': (context) => ImgDown(),
+        },
+        theme: ThemeData(
+          //定义一些主题颜色
+          highlightColor: Color.fromARGB(255, 255, 255, 255),
+          primaryColor: Colors.yellow,
+          accentColor: Color.fromRGBO(3, 54, 255, 1.0),
         ),
       ),
     );

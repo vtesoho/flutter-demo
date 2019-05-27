@@ -26,7 +26,7 @@ class _OkToastDemoState extends State<OkToastDemo> {
         child: FlatButton(
           onPressed: (){
             showToastWidget(
-              widgetToast(),
+              WidgetToast(),
               duration: Duration(seconds: 5),
             );
           },
@@ -36,7 +36,16 @@ class _OkToastDemoState extends State<OkToastDemo> {
     );
   }
 
-  Widget widgetToast() {
+
+ 
+}
+
+
+class WidgetToast extends StatelessWidget {
+  const WidgetToast({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
         children: <Widget>[
           Container(
