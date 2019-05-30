@@ -21,5 +21,6 @@ class SingletonDemo {
   void test(){
     print('store-----$store');
   }
+  
 
 }

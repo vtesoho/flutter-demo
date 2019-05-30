@@ -15,9 +15,9 @@ Store<AppState> createStore() {
     appReducer,
     initialState: AppState.init(),
   );
-  AnalyzeData analyzeData = AnalyzeData(store);
-  WebSocketState webSocketState = WebSocketState(store:store,analyzeData:analyzeData);
-  webSocketState.start();
+  // AnalyzeData analyzeData = AnalyzeData(store);
+  // WebSocketState webSocketState = WebSocketState(store:store,analyzeData:analyzeData);
+  // webSocketState.start();
   
   return store;
 }
