@@ -39,6 +39,7 @@ dev_dependencies:
   cached_network_image: ^0.7.0
   scoped_model: ^1.0.1
   web_socket_channel: ^1.0.12
+  annotation_route: any
 
   
   # image_picker: ^0.5.0+9

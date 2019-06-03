@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttershuachi/dart/dartHome.dart';
 import 'package:fluttershuachi/demo/router/formatTest.dart';
-import 'package:fluttershuachi/demo/router/oktoast.dart';
+import 'package:fluttershuachi/demo/toast/oktoast.dart';
 import 'package:fluttershuachi/demo/test/publistStatus.dart';
 import 'package:fluttershuachi/demo/toast/toastDemo.dart';
 import 'package:redux/redux.dart';
