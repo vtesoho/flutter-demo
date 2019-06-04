@@ -53,6 +53,12 @@ class Home extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
+                Navigator.of(context).pushNamed('/router');
+              },
+              child: Text('router'),
+            ),
+            RaisedButton(
+              onPressed: () {
                 Navigator.of(context).pushNamed('/redux');
               },
               child: Text('reduxDemo'),

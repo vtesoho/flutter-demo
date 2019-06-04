@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:fluttershuachi/demo/router/PushAndRemoveUntilDemo.dart';
+import 'package:fluttershuachi/demo/router/pushReplacementNamed.dart';
 
 class RouterDemo extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('router'),
+      ),
       body: Center(
-        child: Row(
+        child: Wrap(
           children: <Widget>[
             FlatButton(
               child: Text('home'),
@@ -17,6 +22,18 @@ class RouterDemo extends StatelessWidget{
               child: Text('about'),
               onPressed: () {
                 Navigator.pushNamed(context, '/routerPageOne');
+              },
+            ),
+            FlatButton(
+              child: Text('PushReplacementNamed'),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PushReplacementNamedDemo()));
+              },
+            ),
+            FlatButton(
+              child: Text('PushReplacementNamed'),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PushAndRemoveUntilDemo()));
               },
             ),
           ],
