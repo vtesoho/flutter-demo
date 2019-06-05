@@ -11,7 +11,19 @@ class PushReplacementNamedDemo extends StatelessWidget {
         title: Text('PushReplacementNamedDemo'),
       ),
       body: Center(
-        child: Text('当前路径 home-router-PushReplacementNamed'),
+        child: Column(
+          children: <Widget>[
+            Text('当前路径 home-router-PushReplacementNamed'),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (BuildContext context) => PushReplacementNamedBDemo())
+                );
+              },
+              child: Text('router'),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.ac_unit),

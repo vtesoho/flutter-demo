@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttershuachi/demo/router/pushNamedAndRemoveUntilB.dart';
 import 'package:fluttershuachi/demo/router/pushReplacementNamedB.dart';
 
 class PushAndRemoveUntilDemo extends StatelessWidget {
@@ -6,12 +7,48 @@ class PushAndRemoveUntilDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(ModalRoute.withName('/router'));
     return Scaffold(
       appBar: AppBar(
         title: Text('PushReplacementNamedDemo'),
       ),
       body: Center(
-        child: Text('当前路径 home-router-PushReplacementNamed'),
+        child: Column(
+          children: <Widget>[
+            Text('当前路径 home-router-pushNamedAndRemoveUntil'),
+            Text('当前路径 home-router-pushNamedAndRemoveUntil'),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+              },
+              child: Text('跳转首页  false'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamedAndRemoveUntil('/router', (Route<dynamic> route) => false);
+              },
+              child: Text('跳转router  false'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                // Navigator.of(context).pushNamedAndRemoveUntil('/', ModalRoute.withName('/router'));
+                print(ModalRoute.withName('/router'));
+                Navigator.pushAndRemoveUntil(
+                  context, 
+                  MaterialPageRoute(builder: (BuildContext context) => PushNamedAndRemoveUntilB()),
+                  (Route<dynamic> route) => true,
+                );
+              },
+              child: Text('跳转首页 router'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamedAndRemoveUntil('/router', (Route<dynamic> route) => false);
+              },
+              child: Text('跳转router'),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.ac_unit),

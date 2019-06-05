@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttershuachi/demo/router/PushAndRemoveUntilDemo.dart';
+import 'package:fluttershuachi/demo/router/popAndPushNamed.dart';
+import 'package:fluttershuachi/demo/router/popUntil.dart';
 import 'package:fluttershuachi/demo/router/pushReplacementNamed.dart';
 
 class RouterDemo extends StatelessWidget{
@@ -31,10 +33,28 @@ class RouterDemo extends StatelessWidget{
               },
             ),
             FlatButton(
-              child: Text('PushReplacementNamed'),
+              child: Text('popAndPushNamed'),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PopAndPushNamedDemo()));
+              },
+            ),
+            FlatButton(
+              child: Text('pushNamedAndRemoveUntil'),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PushAndRemoveUntilDemo()));
               },
+            ),
+            FlatButton(
+              child: Text('PopUntil'),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PopUntilDemo()));
+              },
+            ),
+            RaisedButton(
+              onPressed: () {
+                print(ModalRoute.withName('/router'));
+              },
+              child: Text('测试ModalRoute.withName(/router)'),
             ),
           ],
         ),
