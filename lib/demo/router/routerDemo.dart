@@ -4,6 +4,7 @@ import 'package:fluttershuachi/demo/router/PushAndRemoveUntilDemo.dart';
 import 'package:fluttershuachi/demo/router/popAndPushNamed.dart';
 import 'package:fluttershuachi/demo/router/popUntil.dart';
 import 'package:fluttershuachi/demo/router/pushReplacementNamed.dart';
+import 'package:fluttershuachi/demo/test/testRouterDemo.dart';
 
 class RouterDemo extends StatelessWidget{
   @override
@@ -60,6 +61,15 @@ class RouterDemo extends StatelessWidget{
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (BuildContext context) => DismissableDemo()),
+                );
+              },
+            ),
+            FlatButton(
+              child: Text('Test'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (BuildContext context) => TestRouterDemo()),
                 );
               },
             ),

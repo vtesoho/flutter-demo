@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttershuachi/dart/dartHome.dart';
 import 'package:fluttershuachi/demo/router/formatTest.dart';
+import 'package:fluttershuachi/demo/test/testRouterDemo.dart';
 import 'package:fluttershuachi/demo/toast/oktoast.dart';
 import 'package:fluttershuachi/demo/test/publistStatus.dart';
 import 'package:fluttershuachi/demo/toast/toastDemo.dart';
@@ -96,6 +97,17 @@ class Home extends StatelessWidget {
                 ToastNotifi().show(child: toastWidget());
               },
               child: Text('Toast Test'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TestRouterDemo(),
+                  ),
+                );
+              },
+              child: Text('TestRouterDemo'),
             ),
             Container(
               child: new StoreConnector<AppState, AppState>(
