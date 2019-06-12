@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttershuachi/demo/dismissable/dismissableDemo.dart';
 import 'package:fluttershuachi/demo/router/PushAndRemoveUntilDemo.dart';
 import 'package:fluttershuachi/demo/router/popAndPushNamed.dart';
 import 'package:fluttershuachi/demo/router/popUntil.dart';
@@ -47,12 +48,25 @@ class RouterDemo extends StatelessWidget{
             FlatButton(
               child: Text('PopUntil'),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PopUntilDemo()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (BuildContext context) => PopUntilDemo()),
+                );
+              },
+            ),
+            FlatButton(
+              child: Text('DismissableDemo'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (BuildContext context) => DismissableDemo()),
+                );
               },
             ),
             RaisedButton(
               onPressed: () {
                 print(ModalRoute.withName('/router'));
+                print('ModalRoute.of(context).settings  ${ModalRoute.of(context).settings}');
               },
               child: Text('测试ModalRoute.withName(/router)'),
             ),

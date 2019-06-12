@@ -22,6 +22,7 @@ class PopUntilDemo extends StatelessWidget {
             RaisedButton(
               onPressed: () {
                 print(ModalRoute.withName('/router'));
+                print('ModalRoute.of(context).settings  ${ModalRoute.of(context).isActive}');
               },
               child: Text('测试ModalRoute.withName(/router)'),
             ),
