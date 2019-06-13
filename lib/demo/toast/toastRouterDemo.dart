@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fluttershuachi/demo/test/slivePullDown.dart';
-import 'package:fluttershuachi/demo/test/tryAsync.dart';
+import 'package:fluttershuachi/demo/toast/customToast.dart';
 
-class TestRouterDemo extends StatelessWidget{
+
+class ToastRouterDemo extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,21 +13,9 @@ class TestRouterDemo extends StatelessWidget{
         child: Wrap(
           children: <Widget>[
             FlatButton(
-              child: Text('tryasync'),
+              child: Text('testToast'),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (BuildContext context) => TryAsyncDemo()),
-                );
-              },
-            ),
-            FlatButton(
-              child: Text('SlivePullDown'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (BuildContext context) => SlivePullDownDemo()),
-                );
+                CustomToast().show(msg: 'ssssdfsfasfasd');
               },
             ),
           ],

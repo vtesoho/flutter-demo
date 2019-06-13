@@ -5,15 +5,18 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttershuachi/dart/dartHome.dart';
 import 'package:fluttershuachi/demo/router/formatTest.dart';
 import 'package:fluttershuachi/demo/test/testRouterDemo.dart';
+import 'package:fluttershuachi/demo/toast/customToast.dart';
 import 'package:fluttershuachi/demo/toast/oktoast.dart';
 import 'package:fluttershuachi/demo/test/publistStatus.dart';
 import 'package:fluttershuachi/demo/toast/toastDemo.dart';
+import 'package:fluttershuachi/demo/toast/toastRouterDemo.dart';
 import 'package:redux/redux.dart';
 import '../store/app/AppState.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    CustomToast(contextData: context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
@@ -94,9 +97,14 @@ class Home extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
-                ToastNotifi().show(child: toastWidget());
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ToastRouterDemo(),
+                  ),
+                );
               },
-              child: Text('Toast Test'),
+              child: Text('ToastRouterDemo'),
             ),
             RaisedButton(
               onPressed: () {

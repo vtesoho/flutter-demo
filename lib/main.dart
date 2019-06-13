@@ -13,6 +13,7 @@ import 'package:fluttershuachi/demo/setStateTestDemo/set_state_test.dart';
 import 'package:fluttershuachi/demo/sliver/slive.dart';
 import 'package:fluttershuachi/demo/state/state_management_demo.dart';
 import 'package:fluttershuachi/demo/stream/stream_demo.dart';
+import 'package:fluttershuachi/demo/toast/customToast.dart';
 import 'package:fluttershuachi/demo/toast/toastDemo.dart';
 import 'package:fluttershuachi/demo/transition/transitionDemo.dart';
 import 'package:fluttershuachi/demo/view/pageview.dart';
@@ -56,7 +57,6 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SingletonDemo(data:'main初始化!').test();
-    
     return StoreProvider(
       store: createStore(),
       child: MaterialApp(
