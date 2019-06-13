@@ -5,6 +5,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttershuachi/dart/dartHome.dart';
 import 'package:fluttershuachi/demo/router/formatTest.dart';
 import 'package:fluttershuachi/demo/test/testRouterDemo.dart';
+import 'package:fluttershuachi/demo/textfield/textfieldDemo.dart';
 import 'package:fluttershuachi/demo/toast/customToast.dart';
 import 'package:fluttershuachi/demo/toast/oktoast.dart';
 import 'package:fluttershuachi/demo/test/publistStatus.dart';
@@ -117,6 +118,19 @@ class Home extends StatelessWidget {
               },
               child: Text('TestRouterDemo'),
             ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TextFieldDemo(),
+                  ),
+                );
+              },
+              child: Text('TextFieldDemo'),
+            ),
+
+            
             Container(
               child: new StoreConnector<AppState, AppState>(
                 builder: (BuildContext context, AppState state) {
