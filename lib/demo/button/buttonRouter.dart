@@ -170,6 +170,8 @@ class ButtonRouter extends StatelessWidget{
     ],
   );
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -184,6 +186,7 @@ class ButtonRouter extends StatelessWidget{
             outlineButton,
             fixedWidthButton,
             buttonBar,
+            PopupMenuButtonDemo(),
           ],
         ),
       ),
@@ -200,6 +203,51 @@ class ButtonRouter extends StatelessWidget{
         child: Container(
           height:80
         ),
+      ),
+    );
+  }
+}
+
+
+
+
+class PopupMenuButtonDemo extends StatefulWidget {
+  PopupMenuButtonDemo({Key key}) : super(key: key);
+
+  _PopupMenuButtonDemoState createState() => _PopupMenuButtonDemoState();
+}
+
+class _PopupMenuButtonDemoState extends State<PopupMenuButtonDemo> {
+  String popupText = 'button111';
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: <Widget>[
+          Text('$popupText'),
+          PopupMenuButton(
+            onSelected: (val) {
+              print(val);
+              setState(() {
+                popupText = val;
+              });
+            },
+            itemBuilder: (BuildContext context) => [
+              PopupMenuItem(
+                value: 'button111',
+                child: Text('button111'),
+              ),
+              PopupMenuItem(
+                value: 'button222',
+                child: Text('button222'),
+              ),
+              PopupMenuItem(
+                value: 'button333',
+                child: Text('button333'),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
