@@ -20,6 +20,156 @@ class ButtonRouter extends StatelessWidget{
     label: Text('add'),
   );
 
+  final Widget flatButton = Row(
+    children: <Widget>[
+      //文字按纽
+      FlatButton(  
+        child: Text('FlatButton'),
+        //如果 为null则按纽为禁用状态
+        // onPressed: null,
+        onPressed: () {
+          print('onPressed FlatButton');
+        },
+        splashColor: Colors.red,   //点击按纽的颜色 
+        textColor: Colors.blue,   //文字的颜色 
+      ),
+      //一个文字带icon的按纽
+      FlatButton.icon(
+        icon: Icon(Icons.brush),
+        label: Text('FlatButton'),
+        onPressed: () {
+          print('onPressed FlatButton');
+        },
+      ),
+    ],
+  );
+
+  final Widget raisedButton = Row(
+    children: <Widget>[
+      RaisedButton(
+        child: Text('RaisedButton'),
+        onPressed: (){},
+        splashColor: Colors.red,
+        color: Colors.blue,  //按纽填充颜色 
+        textColor: Colors.white,
+        // shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: StadiumBorder(),  //一个圆形的形状
+      ),
+      SizedBox(
+        width: 5,
+      ),
+      RaisedButton.icon(
+        icon: Icon(Icons.add),
+        label: Text('RaisedButton'),
+        onPressed: (){},
+        elevation: 10,
+        splashColor: Colors.red,
+        highlightColor: Colors.yellow,  //高亮状态下的颜色
+      ),
+    ],
+  );
+
+  final Widget outlineButton = Row(
+    children: <Widget>[
+      OutlineButton(
+        child: Text('RaisedButton'),
+        onPressed: (){},
+        splashColor: Colors.grey[100],
+        color: Colors.blue,  //按纽填充颜色 
+        textColor: Colors.black,
+        borderSide: BorderSide(color: Colors.black),
+        highlightedBorderColor: Colors.red,   //高亮状态下的边框颜色 
+        shape: StadiumBorder(),
+      ),
+      SizedBox(
+        width: 5,
+      ),
+      OutlineButton.icon(
+        icon: Icon(Icons.add),
+        label: Text('RaisedButton'),
+        onPressed: (){},
+        splashColor: Colors.red,
+      ),
+    ],
+  );
+
+  //设置按纽的宽度
+  final Widget fixedWidthButton = Column(
+    children: <Widget>[
+      Container(
+        width: 300,
+        child: OutlineButton(
+          child: Text('RaisedButton'),
+          onPressed: (){},
+          splashColor: Colors.grey[100],
+          color: Colors.blue,  //按纽填充颜色 
+          textColor: Colors.black,
+          borderSide: BorderSide(color: Colors.black),
+          highlightedBorderColor: Colors.red,   //高亮状态下的边框颜色 
+          shape: StadiumBorder(),
+        )
+      ),
+      Row(
+        children: <Widget>[
+          Expanded(
+            child: OutlineButton(
+              child: Text('RaisedButton'),
+              onPressed: (){},
+              splashColor: Colors.grey[100],
+              color: Colors.blue,  //按纽填充颜色 
+              textColor: Colors.black,
+              borderSide: BorderSide(color: Colors.black),
+              highlightedBorderColor: Colors.red,   //高亮状态下的边框颜色 
+              shape: StadiumBorder(),
+            )
+          ),
+          Expanded(
+            flex: 2,
+            child: OutlineButton(
+              child: Text('RaisedButton'),
+              onPressed: (){},
+              splashColor: Colors.grey[100],
+              color: Colors.blue,  //按纽填充颜色 
+              textColor: Colors.black,
+              borderSide: BorderSide(color: Colors.black),
+              highlightedBorderColor: Colors.red,   //高亮状态下的边框颜色 
+              shape: StadiumBorder(),
+            )
+          ),
+        ],
+      )
+      
+    ],
+  );
+
+  //一个按纽组，其实就是封闭在了一个row里面
+  final Widget buttonBar = ButtonBar(
+    alignment: MainAxisAlignment.center,
+    children: <Widget>[
+      RaisedButton(
+        child: Text('Button'),
+        onPressed: (){},
+        elevation: 10,
+        splashColor: Colors.red,
+        highlightColor: Colors.yellow,  //高亮状态下的颜色
+      ),
+      RaisedButton(
+        child: Text('Button'),
+        onPressed: (){},
+        elevation: 10,
+        splashColor: Colors.red,
+        highlightColor: Colors.yellow,  //高亮状态下的颜色
+      ),
+      RaisedButton(
+        child: Text('Button'),
+        onPressed: (){},
+        elevation: 10,
+        splashColor: Colors.red,
+        highlightColor: Colors.yellow,  //高亮状态下的颜色
+      ),
+    ],
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,14 +177,13 @@ class ButtonRouter extends StatelessWidget{
         title: Text('buttonRouter'),
       ),
       body: Center(
-        child: Wrap(
+        child: Column(
           children: <Widget>[
-            FlatButton(
-              child: Text('testToast'),
-              onPressed: () {
-                
-              },
-            ),
+            flatButton,
+            raisedButton,
+            outlineButton,
+            fixedWidthButton,
+            buttonBar,
           ],
         ),
       ),
