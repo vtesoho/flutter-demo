@@ -26,8 +26,8 @@ class _TextFieldDemoState extends State<TextFieldDemo> {
             FlatButton(
               child: Icon(Icons.arrow_left),
               onPressed: (){
-                print(textController.selection.extentOffset);  //获取光标位置
-                textController.selection = TextSelection.collapsed(offset: 13);   //设置光标位置
+                print(textController.selection.baseOffset);  //获取光标位置
+                // textController.selection = TextSelection.collapsed(offset: 20);   //设置光标位置
               },
             )
           ],
