@@ -25,32 +25,26 @@ import 'package:fluttershuachi/model/singleton/singletonDemo.dart';
 import 'package:fluttershuachi/pages/animation.dart';
 import 'package:fluttershuachi/pages/home.dart';
 import 'package:fluttershuachi/pages/my_page.dart';
-import 'package:fluttershuachi/pages/page_view.dart';
-import 'package:fluttershuachi/pages/share_demo.dart';
 import 'package:fluttershuachi/pages/test_status_demo.dart';
-import 'package:oktoast/oktoast.dart';
-
-
 import 'demo/bloc/blocDemo.dart';
-
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
 import 'demo/redux/reduxDemo.dart';
-
 import './store/index.dart';
 
-
+import 'dart:ui';
 
 void main() {
-  
-  runApp(App());
+  //native初妈化参数   
+  runApp(App(initParams: window.defaultRouteName));
 }
 
 
 
 
 class App extends StatelessWidget {
-  App({Key key}) : super(key: key);
+  final String initParams;
+  App({Key key, this.initParams}) : super(key: key);
+
   
 
   
@@ -60,10 +54,11 @@ class App extends StatelessWidget {
     return StoreProvider(
       store: createStore(),
       child: MaterialApp(
+        title: '杰锅的试验app',
         debugShowCheckedModeBanner: false,
         initialRoute: '/', //默认页面，不写默认为home属性的widget
         routes: {
-          '/': (context) => Home(),
+          '/': (context) => Home(initParams:initParams),
           '/widget': (context) => WidgetAll(),
           '/animation': (context) => AnimationDemo(),
           '/teststatus': (context) => TestStatusDemo(),

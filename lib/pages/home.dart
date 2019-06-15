@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttershuachi/dart/dartHome.dart';
 import 'package:fluttershuachi/demo/button/buttonRouter.dart';
+import 'package:fluttershuachi/demo/messagechannel/messageChannel.dart';
 import 'package:fluttershuachi/demo/router/formatTest.dart';
 import 'package:fluttershuachi/demo/test/testRouterDemo.dart';
 import 'package:fluttershuachi/demo/textfield/textfieldDemo.dart';
@@ -16,6 +17,9 @@ import 'package:redux/redux.dart';
 import '../store/app/AppState.dart';
 
 class Home extends StatelessWidget {
+  String initParams;
+  Home({this.initParams});
+
   @override
   Widget build(BuildContext context) {
     CustomToast(contextData: context);
@@ -140,6 +144,17 @@ class Home extends StatelessWidget {
                 );
               },
               child: Text('ButtonRouter'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MessageChannelDemo(initParams:initParams),
+                  ),
+                );
+              },
+              child: Text('MessageChannel'),
             ),
 
             
