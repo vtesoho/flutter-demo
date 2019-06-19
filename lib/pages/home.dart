@@ -6,6 +6,7 @@ import 'package:fluttershuachi/dart/dartHome.dart';
 import 'package:fluttershuachi/demo/button/buttonRouter.dart';
 import 'package:fluttershuachi/demo/messagechannel/messageChannel.dart';
 import 'package:fluttershuachi/demo/router/formatTest.dart';
+import 'package:fluttershuachi/demo/stream/stream_demo.dart';
 import 'package:fluttershuachi/demo/test/testRouterDemo.dart';
 import 'package:fluttershuachi/demo/textfield/textfieldDemo.dart';
 import 'package:fluttershuachi/demo/toast/customToast.dart';
@@ -155,6 +156,17 @@ class Home extends StatelessWidget {
                 );
               },
               child: Text('MessageChannel'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StreamDemo(),
+                  ),
+                );
+              },
+              child: Text('stream'),
             ),
 
             

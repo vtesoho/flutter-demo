@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
                 tx.replace(R.id.someContainer, Flutter.createFragment("{name:'devio,dataList:['aa','bb','cc']}"));
                 tx.commit();
 
+
             }
         });
     }
