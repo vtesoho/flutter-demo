@@ -8,6 +8,7 @@ class ListviewJumpItem extends StatefulWidget {
 
 class _ListviewJumpItemState extends State<ListviewJumpItem> {
   
+  UniqueKey a = new UniqueKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +20,7 @@ class _ListviewJumpItemState extends State<ListviewJumpItem> {
           children: <Widget>[
             Container(
               height: 340,
-              key: ValueKey(1),
+              key: a,
               color: Colors.red,
               child: Text('data1'),
             ),
@@ -40,6 +41,10 @@ class _ListviewJumpItemState extends State<ListviewJumpItem> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
+          // print(a.toString());
+          var aa = false;
+          print(aa ?? 1111);
+          
           
         },
       ),
