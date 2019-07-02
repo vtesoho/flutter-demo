@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttershuachi/demo/listview/listviewJumpItem.dart';
+import 'package:fluttershuachi/demo/listview/listviewLoad.dart';
 
 
 class ListviewRouter extends StatelessWidget{
@@ -18,6 +19,15 @@ class ListviewRouter extends StatelessWidget{
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (BuildContext context) => ListviewJumpItem()),
+                );
+              },
+            ),
+            FlatButton(
+              child: Text('ListviewLoad'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (BuildContext context) => ListviewLoad()),
                 );
               },
             ),
