@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttershuachi/dart/dartHome.dart';
+import 'package:fluttershuachi/demo/animation/animationRouter.dart';
 import 'package:fluttershuachi/demo/button/buttonRouter.dart';
 import 'package:fluttershuachi/demo/listview/listviewRouter.dart';
 import 'package:fluttershuachi/demo/messagechannel/messageChannel.dart';
@@ -180,7 +181,17 @@ class Home extends StatelessWidget {
               },
               child: Text('ListviewRouter'),
             ),
-            
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AnimationRouter(),
+                  ),
+                );
+              },
+              child: Text('animationRouter'),
+            ),
             Container(
               child: new StoreConnector<AppState, AppState>(
                 builder: (BuildContext context, AppState state) {
