@@ -29,7 +29,7 @@ dependencies:
   oktoast: ^2.1.7
   dio: 1.0.0
   flutter_cache_manager: ^1.0.0
-  connectivity: ^0.4.2
+  connectivity: ^0.4.3+2
 
 
 dev_dependencies:
