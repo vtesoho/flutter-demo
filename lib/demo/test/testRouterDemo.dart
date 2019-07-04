@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttershuachi/demo/test/slivePullDown.dart';
 import 'package:fluttershuachi/demo/test/tryAsync.dart';
+import 'package:fluttershuachi/demo/test/webpText.dart';
 
 class TestRouterDemo extends StatelessWidget{
   @override
@@ -27,6 +28,15 @@ class TestRouterDemo extends StatelessWidget{
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (BuildContext context) => SlivePullDownDemo()),
+                );
+              },
+            ),
+            FlatButton(
+              child: Text('WebpTextDemo'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (BuildContext context) => WebpTest()),
                 );
               },
             ),

@@ -5,6 +5,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttershuachi/dart/dartHome.dart';
 import 'package:fluttershuachi/demo/animation/animationRouter.dart';
 import 'package:fluttershuachi/demo/button/buttonRouter.dart';
+import 'package:fluttershuachi/demo/font/fontRouter.dart';
 import 'package:fluttershuachi/demo/listview/listviewRouter.dart';
 import 'package:fluttershuachi/demo/messagechannel/messageChannel.dart';
 import 'package:fluttershuachi/demo/router/formatTest.dart';
@@ -190,7 +191,18 @@ class Home extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('animationRouter'),
+              child: Text('animation'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FontRouter(),
+                  ),
+                );
+              },
+              child: Text('font'),
             ),
             Container(
               child: new StoreConnector<AppState, AppState>(

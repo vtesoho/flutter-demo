@@ -27,6 +27,9 @@ dependencies:
   redux: ^3.0.0
   flutter_redux: ^0.5.3
   oktoast: ^2.1.7
+  dio: 1.0.0
+  flutter_cache_manager: ^1.0.0
+  connectivity: ^0.4.2
 
 
 dev_dependencies:
@@ -36,7 +39,6 @@ dev_dependencies:
   # esys_flutter_share: "^0.0.9"
   # http: ^0.12.0+1
   # image_downloader: ^0.12.0
-  cached_network_image: ^0.7.0
   scoped_model: ^1.0.1
   web_socket_channel: ^1.0.12
   annotation_route: any
