@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttershuachi/dart/dartHome.dart';
+import 'package:fluttershuachi/dart/dartRouter.dart';
 import 'package:fluttershuachi/demo/animation/animationRouter.dart';
 import 'package:fluttershuachi/demo/button/buttonRouter.dart';
 import 'package:fluttershuachi/demo/font/fontRouter.dart';
@@ -215,6 +216,17 @@ class Home extends StatelessWidget {
                 );
               },
               child: Text('NetworkType'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DartRouter(),
+                  ),
+                );
+              },
+              child: Text('Dart'),
             ),
             
             Container(
