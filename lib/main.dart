@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
 import 'package:fluttershuachi/demo/form/formDemo.dart';
 import 'package:fluttershuachi/demo/imagedown/dioDemo/dioDemo.dart';
 import 'package:fluttershuachi/demo/imagedown/image_picker_saver.dart';
@@ -96,8 +97,11 @@ class App extends StatelessWidget {
           highlightColor: Color.fromARGB(255, 255, 255, 255),
           primaryColor: Colors.yellow,
           accentColor: Color.fromRGBO(3, 54, 255, 1.0),
+          fontFamily: 'PuHuiTiM',
         ),
       ),
     );
   }
+
+
 }
