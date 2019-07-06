@@ -6,6 +6,7 @@ import 'package:fluttershuachi/dart/dartHome.dart';
 import 'package:fluttershuachi/dart/dartRouter.dart';
 import 'package:fluttershuachi/demo/animation/animationRouter.dart';
 import 'package:fluttershuachi/demo/button/buttonRouter.dart';
+import 'package:fluttershuachi/demo/clipboard/clipboradRouter.dart';
 import 'package:fluttershuachi/demo/font/fontRouter.dart';
 import 'package:fluttershuachi/demo/listview/listviewRouter.dart';
 import 'package:fluttershuachi/demo/messagechannel/messageChannel.dart';
@@ -240,6 +241,18 @@ class Home extends StatelessWidget {
               },
               child: Text('Ping'),
             ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ClipboradRouter(),
+                  ),
+                );
+              },
+              child: Text('粘贴板'),
+            ),
+            
             
             Container(
               child: new StoreConnector<AppState, AppState>(
