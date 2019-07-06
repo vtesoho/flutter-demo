@@ -9,6 +9,7 @@ class ClipboardDemo extends StatefulWidget {
 
 class _ClipboardDemoState extends State<ClipboardDemo> {
   String clipborad;
+  TextEditingController _controller = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +19,9 @@ class _ClipboardDemoState extends State<ClipboardDemo> {
       body: Container(
         child: Column(
           children: <Widget>[
-            Text('$clipborad'),
+            TextField(
+              controller: _controller,
+            ),
             Row(
               children: <Widget>[
                 FlatButton(  
@@ -26,7 +29,7 @@ class _ClipboardDemoState extends State<ClipboardDemo> {
                   //如果 为null则按纽为禁用状态
                   // onPressed: null,
                   onPressed: () {
-                    Clipboard.setData(new ClipboardData(text: 'asdfasfasfasfasdfasdfasdf'));
+                    Clipboard.setData(new ClipboardData(text: '${_controller.text}'));
                   },
                   splashColor: Colors.red,   //点击按纽的颜色 
                   textColor: Colors.blue,   //文字的颜色 
@@ -42,7 +45,8 @@ class _ClipboardDemoState extends State<ClipboardDemo> {
                   textColor: Colors.blue,   //文字的颜色 
                 ),
               ],
-            )
+            ),
+            Text('粘贴内容 --  $clipborad'),
           ],
         ),
       ),
