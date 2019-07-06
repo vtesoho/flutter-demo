@@ -10,6 +10,7 @@ import 'package:fluttershuachi/demo/font/fontRouter.dart';
 import 'package:fluttershuachi/demo/listview/listviewRouter.dart';
 import 'package:fluttershuachi/demo/messagechannel/messageChannel.dart';
 import 'package:fluttershuachi/demo/networkType/networkTypeRouter.dart';
+import 'package:fluttershuachi/demo/ping/pingRouter.dart';
 import 'package:fluttershuachi/demo/router/formatTest.dart';
 import 'package:fluttershuachi/demo/stream/stream_demo.dart';
 import 'package:fluttershuachi/demo/test/testRouterDemo.dart';
@@ -227,6 +228,17 @@ class Home extends StatelessWidget {
                 );
               },
               child: Text('Dart'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PingRouter(),
+                  ),
+                );
+              },
+              child: Text('Ping'),
             ),
             
             Container(
