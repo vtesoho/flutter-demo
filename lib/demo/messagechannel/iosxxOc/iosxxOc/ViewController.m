@@ -13,6 +13,7 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UIView *viewa;
 
 
 @end
@@ -29,9 +30,11 @@
     NSLog(@"%@",nameB);
     if([[self.name.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0){
         self.messageLabel.text = @"为空哦";
+        self.viewa.backgroundColor = [UIColor redColor];
     }else{
         NSString * message = [NSString stringWithFormat:@"你好！ %@",nameB];
         self.messageLabel.text = message;
+        self.viewa.backgroundColor = [UIColor blueColor];
     }
 //    if(nameB == nil || nameB.length < 0 || nameB == NULL){
 //        self.messageLabel.text = @"为空哦";
