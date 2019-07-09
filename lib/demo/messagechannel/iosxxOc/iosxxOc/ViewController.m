@@ -11,6 +11,9 @@
 #import "RPoing.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *name;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+
 
 @end
 
@@ -21,7 +24,21 @@
     // Do any additional setup after loading the view.
 }
 
-- (void) testClick{
+- (IBAction)testClick:(id)sender {
+    NSString * nameB = self.name.text;
+    NSLog(@"%@",nameB);
+    if([[self.name.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0){
+        self.messageLabel.text = @"为空哦";
+    }else{
+        NSString * message = [NSString stringWithFormat:@"你好！ %@",nameB];
+        self.messageLabel.text = message;
+    }
+//    if(nameB == nil || nameB.length < 0 || nameB == NULL){
+//        self.messageLabel.text = @"为空哦";
+//    }else{
+//        NSString * message = [NSString stringWithFormat:@"你好！ %@",nameB];
+//        self.messageLabel.text = message;
+//    }
     
 }
 

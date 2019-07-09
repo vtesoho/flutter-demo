@@ -18,4 +18,7 @@
     name = newName;
 }
 
+- (IBAction)geteting:(id)sender {
+}
+
 @end
