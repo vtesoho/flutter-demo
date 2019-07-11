@@ -47,8 +47,18 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+        body: Column(
+          children: <Widget>[
+            Text('Running on: $_platformVersion\n'),
+//            Container(
+//              child: UiKitView(
+//                viewType: 'FluffView',
+//                // creationParams: data,
+//                // onPlatformViewCreated: onPlatformViewCreated,
+//                // creationParamsCodec: const StandardMessageCodec(),
+//              ),
+//            ),
+          ],
         ),
       ),
     );

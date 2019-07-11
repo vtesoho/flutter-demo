@@ -10,4 +10,9 @@ class Fluttetiosc {
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
+
+  static Future<String> get testview async {
+    final String version = await _channel.invokeMethod('testview');
+    return version;
+  }
 }

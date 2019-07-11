@@ -252,6 +252,17 @@ class Home extends StatelessWidget {
               },
               child: Text('粘贴板'),
             ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ClipboradRouter(),
+                  ),
+                );
+              },
+              child: Text('uikitview'),
+            ),
             
             
             Container(
