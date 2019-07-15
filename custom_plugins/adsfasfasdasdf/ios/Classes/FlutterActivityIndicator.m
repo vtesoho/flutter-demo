@@ -1,8 +1,10 @@
 #import "FlutterActivityIndicator.h"
 #import "UIColor+RGB.h"
-//#import <adsfasfasdasdf/adsfasfasdasdf-Swift.h>
+// #import <adsfasfasdasdf/adsfasfasdasdf-Swift.h>
+// #import <UIKit/UIKit.h>
+#import <YPImagePicker/YPImagePicker-Swift.h>
 
-
+FlutterViewController *_selfController;
 
 @implementation FlutterActivityIndicatorFactory{
     NSObject<FlutterBinaryMessenger>*_messenger;
@@ -30,13 +32,13 @@
 
 @end
 
+
 @implementation FlutterActivityIndicatorController{
     int64_t _viewId;
     FlutterMethodChannel* _channel;
     UIActivityIndicatorView * _indicator;
     UIView * _isui;
     UIButton * _pickButton;
-    SwiftViewControllerA *controller;
 
 
 }
@@ -49,10 +51,11 @@
         _isui.backgroundColor = [UIColor redColor];
         _pickButton.backgroundColor = [UIColor redColor];
         _pickButton.frame = CGRectMake(100, 100, 100, 40);
-
 //        TestViewController *ec = [TestViewController new];
         //ec = [[Testa alloc]init];
         //[self.view ]
+
+
 
 
         
@@ -63,6 +66,17 @@
         [_channel setMethodCallHandler:^(FlutterMethodCall *  call, FlutterResult  result) {
             [weakSelf onMethodCall:call result:result];
         }];
+
+
+        _selfController = (FlutterViewController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+        
+
+        //self.mapView = [[MAMapView alloc] initWithFrame:_selfView.bounds];
+        //YPImagePickerConfiguration * config = [YPImagePickerConfiguration alloc];
+        //config.library.maxNumberOfItems = 9
+        //let picker = YPImagePicker(configuration: config)
+
+
         
     }
     
@@ -70,6 +84,7 @@
 }
 
 -(UIView *)view{
+
     return _isui;
 }
 

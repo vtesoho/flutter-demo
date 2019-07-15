@@ -1,6 +1,6 @@
 # image_tailor
 
-image_tailor
+A new Flutter plugin.
 
 ## Getting Started
 

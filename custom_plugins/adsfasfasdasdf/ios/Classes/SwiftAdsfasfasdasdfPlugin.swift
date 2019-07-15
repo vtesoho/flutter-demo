@@ -4,12 +4,6 @@ import YPImagePicker
 import Photos
 
 
-@objc class SwiftViewControllerA: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-}
 
 @objc class TestViewController: UIViewController {
     var selectedItems = [YPMediaItem]()

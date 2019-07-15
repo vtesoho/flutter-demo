@@ -4,22 +4,21 @@
 Pod::Spec.new do |s|
   s.name             = 'image_tailor'
   s.version          = '0.0.1'
-  s.summary          = 'image_tailor'
+  s.summary          = 'A new Flutter plugin.'
   s.description      = <<-DESC
-image_tailor
+A new Flutter plugin.
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'vtesoho@163.com' }
+  s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'YPImagePicker'
-  s.static_framework = true
+  s.dependency 'YPImagePicker', '4.0.0'
+
 
   s.ios.deployment_target = '9.0'
-
-
+  s.swift_version = '4.2'
 end
 
