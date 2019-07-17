@@ -30,8 +30,10 @@ dependencies:
   dio: 1.0.0
   flutter_cache_manager: ^1.0.0
   connectivity: ^0.4.3+2
-  flutter_iostesta: 
-    path: custom_plugins/flutter_iostesta
+  # image_tailor: 
+  #   path: custom_plugins/image_tailor
+  fluttertestswift:
+    path: custom_plugins/fluttertestswift
 
 
 dev_dependencies:

@@ -12,6 +12,7 @@ import 'package:fluttershuachi/demo/listview/listviewRouter.dart';
 import 'package:fluttershuachi/demo/messagechannel/messageChannel.dart';
 import 'package:fluttershuachi/demo/networkType/networkTypeRouter.dart';
 import 'package:fluttershuachi/demo/ping/pingRouter.dart';
+import 'package:fluttershuachi/demo/plugin/pluginDemo.dart';
 import 'package:fluttershuachi/demo/router/formatTest.dart';
 import 'package:fluttershuachi/demo/stream/stream_demo.dart';
 import 'package:fluttershuachi/demo/test/testRouterDemo.dart';
@@ -262,6 +263,17 @@ class Home extends StatelessWidget {
                 );
               },
               child: Text('uikitview'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PluginRouter(),
+                  ),
+                );
+              },
+              child: Text('plugin'),
             ),
             
             
