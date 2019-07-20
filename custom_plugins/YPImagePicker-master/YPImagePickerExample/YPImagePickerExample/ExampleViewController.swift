@@ -95,7 +95,7 @@ class ExampleViewController: UIViewController {
         
         config.library.libraryImageratio = "1080:800"
         
-        config.library.defaultMultipleSelection = true;
+        config.library.defaultMultipleSelection = false;
         
 
         /* Enables selecting the front camera by default, useful for avatars. Defaults to false */
