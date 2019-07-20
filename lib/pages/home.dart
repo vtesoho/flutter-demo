@@ -8,11 +8,11 @@ import 'package:fluttershuachi/demo/animation/animationRouter.dart';
 import 'package:fluttershuachi/demo/button/buttonRouter.dart';
 import 'package:fluttershuachi/demo/clipboard/clipboradRouter.dart';
 import 'package:fluttershuachi/demo/font/fontRouter.dart';
+import 'package:fluttershuachi/demo/life_cycle/lifeCycleDemo.dart';
 import 'package:fluttershuachi/demo/listview/listviewRouter.dart';
 import 'package:fluttershuachi/demo/messagechannel/messageChannel.dart';
 import 'package:fluttershuachi/demo/networkType/networkTypeRouter.dart';
 import 'package:fluttershuachi/demo/ping/pingRouter.dart';
-import 'package:fluttershuachi/demo/plugin/pluginDemo.dart';
 import 'package:fluttershuachi/demo/router/formatTest.dart';
 import 'package:fluttershuachi/demo/stream/stream_demo.dart';
 import 'package:fluttershuachi/demo/test/testRouterDemo.dart';
@@ -28,7 +28,7 @@ import '../store/app/AppState.dart';
 class Home extends StatelessWidget {
   String initParams;
   Home({this.initParams});
-
+  
   @override
   Widget build(BuildContext context) {
     CustomToast(contextData: context);
@@ -269,11 +269,11 @@ class Home extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PluginRouter(),
+                    builder: (context) => LifeCycleDemo(),
                   ),
                 );
               },
-              child: Text('plugin'),
+              child: Text('lifecycle'),
             ),
             
             

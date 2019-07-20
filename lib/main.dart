@@ -32,7 +32,6 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'demo/redux/reduxDemo.dart';
 import './store/index.dart';
 
-
 import 'dart:ui';
 
 void main() {
@@ -43,15 +42,49 @@ void main() {
 
 
 
-class App extends StatelessWidget {
+class App extends StatelessWidget with WidgetsBindingObserver {
   final String initParams;
   App({Key key, this.initParams}) : super(key: key);
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.inactive:
+        print('lifecycle AppLifecycleState.inactive');
+        break;
+      case AppLifecycleState.paused:
+        print('lifecycle AppLifecycleState.paused');
+        break;
+      case AppLifecycleState.resumed:
+        print('lifecycle AppLifecycleState.resumed');
+        break;
+      case AppLifecycleState.suspending:
+        print('lifecycle AppLifecycleState.suspending');
+        break;
+    }
+    super.didChangeAppLifecycleState(state);
+  }
+
   
+  void setCustomErrorPage(){
+    ErrorWidget.builder = (FlutterErrorDetails flutterErrorDetails){
+      print('-----------------------------${flutterErrorDetails.toString()}');
+      print('-----------------------------');
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('页面出错啦！'),
+        ),
+        body: Container(
+          child: Text("请重新加载"),
+        ),
+      );
+    };
+  }
 
   
   @override
   Widget build(BuildContext context) {
+    setCustomErrorPage();
     SingletonDemo(data:'main初始化!').test();
     return StoreProvider(
       store: createStore(),

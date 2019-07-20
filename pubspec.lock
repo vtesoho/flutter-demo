@@ -151,13 +151,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  fluttertestswift:
-    dependency: "direct main"
-    description:
-      path: "custom_plugins/fluttertestswift"
-      relative: true
-    source: path
-    version: "0.0.1"
   front_end:
     dependency: transitive
     description:

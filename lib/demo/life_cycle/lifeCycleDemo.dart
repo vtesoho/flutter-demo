@@ -8,7 +8,28 @@ class LifeCycleDemo extends StatefulWidget {
 }
 
 
-class _LifeCycleDemoState extends State<LifeCycleDemo> {
+class _LifeCycleDemoState extends State<LifeCycleDemo> with WidgetsBindingObserver  {
+  var std;
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.inactive:
+        print('lifecycle AppLifecycleState.inactive');
+        break;
+      case AppLifecycleState.paused:
+        print('lifecycle AppLifecycleState.paused');
+        break;
+      case AppLifecycleState.resumed:
+        print('lifecycle AppLifecycleState.resumed');
+        break;
+      case AppLifecycleState.suspending:
+        print('lifecycle AppLifecycleState.suspending');
+        break;
+    }
+    super.didChangeAppLifecycleState(state);
+  }
+
   @override
   void initState() {
     print('看看执行顺序 initState');
@@ -62,7 +83,9 @@ class _LifeCycleDemoState extends State<LifeCycleDemo> {
           color: Colors.blue,
           child: Column(
             children: <Widget>[
-              Text('sdfsdf'),
+              std['ddddd'] != 222 ?
+                Text('sdfsdf')
+              : Text('data'),
             ],
           ),
         ),

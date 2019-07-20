@@ -32,8 +32,8 @@ dependencies:
   connectivity: ^0.4.3+2
   # image_tailor: 
   #   path: custom_plugins/image_tailor
-  fluttertestswift:
-    path: custom_plugins/fluttertestswift
+  # fluttertestswift:
+  #   path: custom_plugins/fluttertestswift
 
 
 dev_dependencies:
