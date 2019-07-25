@@ -8,32 +8,19 @@ class LifeCycleDemo extends StatefulWidget {
 }
 
 
-class _LifeCycleDemoState extends State<LifeCycleDemo> with WidgetsBindingObserver  {
-  var std;
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.inactive:
-        print('lifecycle AppLifecycleState.inactive');
-        break;
-      case AppLifecycleState.paused:
-        print('lifecycle AppLifecycleState.paused');
-        break;
-      case AppLifecycleState.resumed:
-        print('lifecycle AppLifecycleState.resumed');
-        break;
-      case AppLifecycleState.suspending:
-        print('lifecycle AppLifecycleState.suspending');
-        break;
-    }
-    super.didChangeAppLifecycleState(state);
-  }
-
+class _LifeCycleDemoState extends State<LifeCycleDemo>with WidgetsBindingObserver  {
+  
   @override
   void initState() {
     print('看看执行顺序 initState');
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    print(state.toString());
+    super.didChangeAppLifecycleState(state);
   }
 
   @override
@@ -59,9 +46,10 @@ class _LifeCycleDemoState extends State<LifeCycleDemo> with WidgetsBindingObserv
 
   @override
   void dispose() {
-    // TODO: implement dispose
-    super.dispose();
     print('看看执行顺序 dispose');
+    super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+    
   }
 
   @override
@@ -83,9 +71,8 @@ class _LifeCycleDemoState extends State<LifeCycleDemo> with WidgetsBindingObserv
           color: Colors.blue,
           child: Column(
             children: <Widget>[
-              std['ddddd'] != 222 ?
-                Text('sdfsdf')
-              : Text('data'),
+
+              Text('sdfsdf'),
             ],
           ),
         ),

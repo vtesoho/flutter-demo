@@ -70,7 +70,7 @@ class YPAssetViewContainer: UIView {
         spinnerView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
 //        spinnerView.backgroundColor = UIColor.red
         //vs
-        print("h走到这里没有？")
+//        print("h走到这里没有？")
         //vs 选择的图片显示区域？
 //        curtain.backgroundColor = .blue
         curtain.backgroundColor = UIColor.black.withAlphaComponent(0.7)
@@ -116,7 +116,7 @@ class YPAssetViewContainer: UIView {
             let z = zoomableView.zoomScale
             shouldCropToSquare = (z >= 1 && z < zoomableView.squaredZoomScale)
         }
-        print("全屏执行？")
+//        print("全屏执行？")
         zoomableView?.fitImage(shouldCropToSquare, animated: true)
     }
     

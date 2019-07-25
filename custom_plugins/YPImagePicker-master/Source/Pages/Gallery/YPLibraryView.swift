@@ -54,7 +54,7 @@ final class YPLibraryView: UIView {
             width: screenWidth,
             height: screenHeight)
         
-        print(self.frame.size.height,"--------------")
+//        print(self.frame.size.height,"--------------")
         
         //        let viewBounds:CGRect = CGRectMake(0,20,
         //                                           UIScreen.mainScreen().bounds.width,
@@ -72,7 +72,7 @@ final class YPLibraryView: UIView {
         let scaleWidth = Float(arrayStrings[0]) ?? 1
         let scaleHeight = Float(arrayStrings[1]) ?? 1
         
-        print("scaleWidth / scaleHeight", scaleWidth/scaleHeight)
+//        print("scaleWidth / scaleHeight", scaleWidth/scaleHeight)
         let scale: CGFloat = CGFloat(scaleWidth)/CGFloat(scaleHeight)
         var assetZoomableViewFrame = CGRect(
             x: 0.0,
@@ -82,8 +82,8 @@ final class YPLibraryView: UIView {
         
         if(scale < 1){
             let wh = screenWidth * scale
-            print((screenWidth - wh) / 2)
-            print("(screenWidth - wh) / 2", (screenWidth - wh) / 2, "-- wh --", wh)
+//            print((screenWidth - wh) / 2)
+//            print("(screenWidth - wh) / 2", (screenWidth - wh) / 2, "-- wh --", wh)
             assetZoomableViewFrame = CGRect(
                 x: (screenWidth - wh) / 2,
                 y: 0.0,
@@ -95,7 +95,7 @@ final class YPLibraryView: UIView {
         }
         if(scale > 1){
             let wh = screenWidth / scale
-            print("(screenWidth - wh) / 2", (screenWidth - wh) / 2, "-- wh --", wh)
+//            print("(screenWidth - wh) / 2", (screenWidth - wh) / 2, "-- wh --", wh)
             assetZoomableViewFrame = CGRect(
                 x: 0.0,
                 y: (screenWidth - wh) / 2,
@@ -115,7 +115,7 @@ final class YPLibraryView: UIView {
         assetZoomableView.frame =  assetZoomableViewFrame
         
         
-        print(UIScreen.main.bounds.size.width,"--------------")
+//        print(UIScreen.main.bounds.size.width,"--------------")
         
 //        self.frame = CGRect(x: 0.0, y: 0.0, width: screenWidth, height: screenHeight)
         //        allview.frame = CGRect(x: 0.0, y: 0.0, width: screenWidth, height: screenHeight)
@@ -123,7 +123,7 @@ final class YPLibraryView: UIView {
         assetViewContainer.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
         collectionView.frame =  CGRect(x: 0.0, y: screenWidth, width: screenWidth, height: screenHeight - screenWidth)
-        print(collectionView.frame , screenWidth, screenHeight)
+//        print(collectionView.frame , screenWidth, screenHeight)
         if #available(iOS 11.0, *) {
             let insets = UIApplication.shared.delegate?.window??.safeAreaInsets ?? UIEdgeInsets.zero
             
@@ -227,7 +227,7 @@ extension YPLibraryView {
         let normalizedY = min(1, cropView.contentOffset.y &/ cropView.contentSize.height)
         let normalizedWidth = min(1, cropView.frame.width / cropView.contentSize.width)
         let normalizedHeight = min(1, cropView.frame.height / cropView.contentSize.height)
-        print("currentCropRect",normalizedX,normalizedY,normalizedWidth,normalizedHeight)
+//        print("currentCropRect",normalizedX,normalizedY,normalizedWidth,normalizedHeight)
         return CGRect(x: normalizedX, y: normalizedY, width: normalizedWidth, height: normalizedHeight)
         //        return CGRect(x: normalizedX, y: normalizedY, width: normalizedWidth, height: 100)
     }
@@ -250,31 +250,3 @@ extension YPLibraryView {
 }
 
 
-extension NSLayoutConstraint {
-    /**
-     Change multiplier constraint
-     
-     - parameter multiplier: CGFloat
-     - returns: NSLayoutConstraint
-     */
-    func setMultiplier(multiplier:CGFloat) -> NSLayoutConstraint {
-        
-        NSLayoutConstraint.deactivate([self])
-        
-        let newConstraint = NSLayoutConstraint(
-            item: firstItem,
-            attribute: firstAttribute,
-            relatedBy: relation,
-            toItem: secondItem,
-            attribute: secondAttribute,
-            multiplier: multiplier,
-            constant: constant)
-        
-        newConstraint.priority = priority
-        newConstraint.shouldBeArchived = self.shouldBeArchived
-        newConstraint.identifier = self.identifier
-        
-        NSLayoutConstraint.activate([newConstraint])
-        return newConstraint
-    }
-}

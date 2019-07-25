@@ -103,7 +103,7 @@ final class YPAssetZoomableView: UIScrollView {
         guard currentAsset != photo else { DispatchQueue.main.async { completion() }; return }
         currentAsset = photo
         //vs
-        print("选择图片？？")
+//        print("选择图片？？")
         
         
         
@@ -148,7 +148,7 @@ final class YPAssetZoomableView: UIScrollView {
         let w = image.size.width
         let h = image.size.height
         //vs 选择图片后，怎么移动图片
-        print(w,h)
+//        print(w,h)
 
         var aspectRatio: CGFloat = 1
         var zoomScale: CGFloat = 1
@@ -185,7 +185,8 @@ final class YPAssetZoomableView: UIScrollView {
     /// Calculate zoom scale which will fit the image to square
     fileprivate func calculateSquaredZoomScale() -> CGFloat {
         guard let image = assetImageView.image else {
-            print("YPAssetZoomableView >>> No image"); return 1.0
+//            print("YPAssetZoomableView >>> No image");
+            return 1.0
         }
         
         
@@ -211,13 +212,13 @@ final class YPAssetZoomableView: UIScrollView {
         let scrollViewBoundsSize = self.bounds.size
         var assetFrame = assetView.frame
         let assetSize = assetView.frame.size
-        print(scrollViewBoundsSize,"scrollViewBoundsSize","   assetView.frame", assetView.frame)
+//        print(scrollViewBoundsSize,"scrollViewBoundsSize","   assetView.frame", assetView.frame)
         
         assetFrame.origin.x = (assetSize.width < scrollViewBoundsSize.width) ?
             (scrollViewBoundsSize.width - assetSize.width) / 2.0 : 0
         assetFrame.origin.y = (assetSize.height < scrollViewBoundsSize.height) ?
             (scrollViewBoundsSize.height - assetSize.height) / 2.0 : 0.0
-        print("centerAssetView",assetFrame)
+//        print("centerAssetView",assetFrame)
 //        assetFrame.origin.x = 60
 //        assetFrame.origin.y = 0
 //        assetFrame.size.width = 300
@@ -268,13 +269,13 @@ extension YPAssetZoomableView: UIScrollViewDelegate {
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         myDelegate?.ypAssetZoomableViewScrollViewDidZoom()
-        print("缩放方法？")
+//        print("缩放方法？")
         let assetView = isVideoMode ? videoView : photoImageView
         let assetSize = assetView.frame.size
         if(scrollView.contentSize.height < assetSize.height){
             return
         }
-        print(scrollView.contentSize)
+//        print(scrollView.contentSize)
         centerAssetView()
     }
     

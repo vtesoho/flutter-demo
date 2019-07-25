@@ -45,6 +45,8 @@ void main() {
 class App extends StatelessWidget with WidgetsBindingObserver {
   final String initParams;
   App({Key key, this.initParams}) : super(key: key);
+  
+  
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -80,10 +82,12 @@ class App extends StatelessWidget with WidgetsBindingObserver {
       );
     };
   }
+  
 
   
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addObserver(this);
     setCustomErrorPage();
     SingletonDemo(data:'main初始化!').test();
     return StoreProvider(

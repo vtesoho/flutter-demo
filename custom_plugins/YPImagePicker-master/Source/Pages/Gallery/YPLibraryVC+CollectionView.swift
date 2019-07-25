@@ -56,7 +56,7 @@ extension YPLibraryVC {
     
     /// Removes cell from selection
     func deselect(indexPath: IndexPath) {
-        print("deselect",indexPath)
+//        print("deselect",indexPath)
         if let positionIndex = selection.firstIndex(where: { $0.assetIdentifier == mediaManager.fetchResult[indexPath.row].localIdentifier }) {
             selection.remove(at: positionIndex)
 

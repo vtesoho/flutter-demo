@@ -30,7 +30,7 @@ extension PHCachingImageManager {
                 // Crop the high quality image manually.
                 let xCrop: CGFloat = cropRect.origin.x * CGFloat(asset.pixelWidth)
                 let yCrop: CGFloat = cropRect.origin.y * CGFloat(asset.pixelHeight)
-                print(targetSize.width,targetSize.height,"fetchImage")
+//                print(targetSize.width,targetSize.height,"fetchImage")
                 let scaledCropRect = CGRect(x: xCrop,
                                             y: yCrop,
 //                                            width: targetSize.width,

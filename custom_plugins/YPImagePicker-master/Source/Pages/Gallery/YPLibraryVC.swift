@@ -29,7 +29,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     public required init() {
         super.init(nibName: nil, bundle: nil)
         title = YPConfig.wordings.libraryTitle
-        print("执行到了YPLibraryVC")
+        //print("执行到了YPLibraryVC")
         
     }
     
@@ -140,7 +140,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     
     @objc
     func squareCropButtonTapped() {
-        print("squareCropButtonTapped",selection)
+//        print("squareCropButtonTapped",selection)
 //        NSLayoutConstraint const = v.assetViewContainer.constraints
 //        const = MyConstraint.changeMultiplier(const, multiplier: 1)
         
@@ -207,7 +207,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     
     @objc
     func tappedImage() {
-        print("tappedImage")
+//        print("tappedImage")
 //        if !panGestureHelper.isImageShown {
 //            panGestureHelper.resetToOriginalState()
 //            // no dragup? needed? dragDirection = .up
@@ -262,7 +262,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     }
     
     func refreshMediaRequest() {
-        print("滑动？？？？")
+//        print("滑动？？？？")
         let options = buildPHFetchOptions()
         
         if let collection = mediaManager.collection {
@@ -521,7 +521,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
         // round to lowest even number
         width = (width.truncatingRemainder(dividingBy: 2) == 0) ? width : width - 1
         height = (height.truncatingRemainder(dividingBy: 2) == 0) ? height : height - 1
-        print(width,height,"targetSize")
+//        print(width,height,"targetSize")
         return CGSize(width: width, height: height)
     }
     

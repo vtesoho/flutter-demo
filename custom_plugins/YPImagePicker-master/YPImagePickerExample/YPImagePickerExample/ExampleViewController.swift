@@ -52,7 +52,7 @@ class ExampleViewController: UIViewController {
 //        let picker = YPImagePicker(configuration: config)
 //
 //        self.present(picker, animated: true, completion: nil)
-        print("sssssss");
+//        print("sssssss");
         
     }
     
@@ -73,7 +73,7 @@ class ExampleViewController: UIViewController {
     // MARK: - Configuration
     @objc
     func showPicker() {
-        print("bbbbbbb");
+//        print("bbbbbbb");
         var config = YPImagePickerConfiguration()
 
         /* Uncomment and play around with the configuration 👨‍🔬 🚀 */
@@ -198,18 +198,18 @@ class ExampleViewController: UIViewController {
         picker.didFinishPicking { [unowned picker] items, cancelled in
             
             if cancelled {
-                print("Picker was canceled")
+//                print("Picker was canceled")
                 picker.dismiss(animated: true, completion: nil)
                 return
             }
-            _ = items.map { print("🧀aaaaa \($0)") }
-            print(items.count)
+            _ = items.map { print("🧀 \($0)") }
+//            print(items.count)
             self.selectedItems = items
             if let firstItem = items.first {
                 switch firstItem {
                 case .photo(let photo):
                     self.selectedImageV.image = photo.image
-                    print("bbbbbbb \(photo.image)");
+//                    print("bbbbbbb \(photo.image)");
                     picker.dismiss(animated: true, completion: nil)
                 case .video(let video):
                     self.selectedImageV.image = video.thumbnail

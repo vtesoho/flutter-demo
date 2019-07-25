@@ -24,7 +24,7 @@ class YPGridView: UIView {
     
     convenience init() {
         self.init(frame: .zero)
-        print("gridview init 执行几次？")
+//        print("gridview init 执行几次？")
         
         isUserInteractionEnabled = false
         sv(
