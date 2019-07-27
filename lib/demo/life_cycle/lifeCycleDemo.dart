@@ -15,6 +15,13 @@ class _LifeCycleDemoState extends State<LifeCycleDemo>with WidgetsBindingObserve
     print('看看执行顺序 initState');
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      print("此监听在build后执行一次");
+    });
+    WidgetsBinding.instance.addPersistentFrameCallback((_){
+      print("每次绘制Frame结束后都会回调");
+    });
+
   }
 
   @override
